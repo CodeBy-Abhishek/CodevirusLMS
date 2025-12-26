@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+</head>
+
+<body style="
+  margin:0;
+  min-height:100vh;
+  background:#eef2f7;
+  font-family: Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+">
+
+  <div style="
+    width:100%;
+    max-width:900px;
+    padding:30px;
+  ">
+
+    <h1 style="
+      text-align:center;
+      margin-bottom:40px;
+      color:#1f2937;
+    ">
+      Admin Dashboard
+    </h1>
+
+    <div style="
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:25px;
+    ">
+      <a href="/admin/users" style="
+        background:#ffffff;
+        padding:30px;
+        border-radius:14px;
+        text-decoration:none;
+        color:#111827;
+        box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        transition:0.3s;
+      "
+      onmouseover="this.style.transform='translateY(-6px)'"
+      onmouseout="this.style.transform='translateY(0)'">
+
+        <h2 style="margin:0 0 10px 0;">👤 Users</h2>
+        <p style="margin:0;color:#6b7280;">
+          View and manage registered users
+        </p>
+      </a>
+      <a href="/admin/courses" style="
+        background:#ffffff;
+        padding:30px;
+        border-radius:14px;
+        text-decoration:none;
+        color:#111827;
+        box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        transition:0.3s;
+      "
+      onmouseover="this.style.transform='translateY(-6px)'"
+      onmouseout="this.style.transform='translateY(0)'">
+
+        <h2 style="margin:0 0 10px 0;">📘 Courses</h2>
+        <p style="margin:0;color:#6b7280;">
+          Manage courses and content
+        </p>
+      </a>
+      <a href="/admin/teachers" style="
+        background:#ffffff;
+        padding:30px;
+        border-radius:14px;
+        text-decoration:none;
+        color:#111827;
+        box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        transition:0.3s;
+      "
+      onmouseover="this.style.transform='translateY(-6px)'"
+      onmouseout="this.style.transform='translateY(0)'">
+        <h2 style="margin:0 0 10px 0;">✔ Teachers</h2>
+        <p style="margin:0;color:#6b7280;">
+          Approve and manage teachers
+        </p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+
+<body style="
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+">
+
+  <div style="
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+  ">
+
+    <h1 style="
+      margin-bottom: 30px;
+      color: #111827;
+    ">
+      Admin Dashboard
+    </h1>
+
+    <ul style="
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    ">
+      <li style="margin-bottom: 15px;">
+        <a href="/admin/users" style="
+          display: block;
+          padding: 14px;
+          background: #2563eb;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: 600;
+        ">
+          View Users
+        </a>
+      </li>
+
+      <li style="margin-bottom: 15px;">
+        <a href="/admin/courses" style="
+          display: block;
+          padding: 14px;
+          background: #2563eb;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: 600;
+        ">
+          View Courses
+        </a>
+      </li>
+
+      <li>
+        <a href="/admin/teachers" style="
+          display: block;
+          padding: 14px;
+          background: #2563eb;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: 600;
+        ">
+          Approve Teachers
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+</html> -->

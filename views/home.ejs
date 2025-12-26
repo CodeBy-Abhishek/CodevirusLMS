@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cybersecurity</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Light Blue Gradient Background */
+        .light-blue-gradient {
+            background: linear-gradient(180deg,
+                    #f0f9ff 0%,
+                    #e8f4fc 25%,
+                    #f5faff 50%,
+                    #e8f4fc 75%,
+                    #f0f9ff 100%);
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    #f8fbff 30%,
+                    #e8f5f0 60%,
+                    #e0f2f1 100%);
+        }
+
+        /* Button Gradient */
+        .btn-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #059669 0%, #2563eb 100%);
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+
+        .faq-item .faq-icon-plus {
+            display: block;
+        }
+
+        .faq-item .faq-icon-minus {
+            display: none;
+        }
+
+        .faq-item.active .faq-icon-plus {
+            display: none;
+        }
+
+        .faq-item.active .faq-icon-minus {
+            display: block;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased">
+    <%- include('includes/header.ejs') %>
+        <!-- ============================================ -->
+        <!-- SECTION 1: Hero Section (Video Only) -->
+        <!-- ============================================ -->
+        <section class="hero-section">
+
+            <!-- Background Video -->
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="/vidio/hero.mp4" type="video/mp4">
+            </video>
+
+            <!-- Dark Overlay -->
+            <div class="hero-overlay"></div>
+
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 2: Cybersecurity Solutions -->
+        <!-- ============================================ -->
+        <section class="w-full bg-[#0f1623] py-16 md:py-24 lg:py-28">
+            <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 leading-tight mb-5">
+                        Build a Career in Cybersecurity with Real-World Skills
+                    </h2>
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        Learn from industry professionals with hands-on training in ethical hacking, cloud security, SOC
+                        operations, digital forensics, and advanced cyber defense.
+                    </p>
+                </div>
+
+                <!-- Solutions Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                    <!-- Card 1 - SOC Managers -->
+                    <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Cyber Tech Specialist (CTS)</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            A foundation-level cybersecurity program covering networking, Linux, ethical hacking, SOC
+                            basics, and security automation for beginners. </p>
+                    </div>
+
+                    <!-- Card 2 - Cloud SecOps -->
+                    <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Certified Cybersecurity Associate (CCA)
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            A job-oriented program focused on ethical hacking, penetration testing, web security, and
+                            core cybersecurity skills..
+                        </p>
+                    </div>
+
+                    <!-- Card 3 - Infra Leads -->
+                    <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Certified Cybersecurity Professional (CCP)
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            An advanced cybersecurity program covering offensive, defensive, and cloud security with
+                            real-world use cases..
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: Proactive Threat Protection -->
+        <!-- ============================================ -->
+      <section
+  class="relative w-full py-16 md:py-24 lg:py-28
+         bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/img/network.jpg');"
+>
+
+  <!-- Overlay (behind content, non-blocking) -->
+  <div class="absolute inset-0 bg-black/60 pointer-events-none z-0"></div>
+
+  <!-- Content Wrapper -->
+  <div class="relative z-20 max-w-7xl mx-auto px-6">
+
+    <!-- Section Header -->
+    <div class="max-w-2xl mb-12 md:mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Stay Ahead of Every Security Challenge
+      </h2>
+      <p class="text-base text-gray-300 leading-relaxed">
+        Our cybersecurity solutions are designed to detect, prevent, and respond to
+        modern threats with speed, intelligence, and precision.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+
+      <!-- Card 1 -->
+      <div class="bg-[#0f1623] rounded-2xl shadow-lg
+                  transition-transform duration-300 hover:-translate-y-3">
+        <div class="p-6 sm:p-8">
+          <h3 class="text-xl font-semibold text-white mb-3">
+            Accelerate Threat Detection & Response
+          </h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Leverage AI-powered analytics to detect threats in real time. Automate
+            response workflows, reduce SOC workload, and strengthen your security
+            posture across endpoints, networks, and applications.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#0f1623] rounded-2xl shadow-lg
+                  transition-transform duration-300 hover:-translate-y-3">
+        <div class="p-6 sm:p-8">
+          <h3 class="text-xl font-semibold text-white mb-3">
+            Secure Hybrid & Multi-Cloud Environments
+          </h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Protect cloud workloads with consistent security policies across hybrid
+            and multi-cloud architectures. Gain visibility, enforce compliance, and
+            scale protection as your infrastructure grows.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+        <!-- ============================================ -->
+        <!-- SECTION 4: Industry-Specific Security -->
+        <!-- ============================================ -->
+        <section class="w-full bg-[#0f1623] py-16 md:py-24 lg:py-28">
+            <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 leading-tight mb-5">
+                        Learn Cybersecurity. Build Real Skills.
+                    </h2>
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        Codevirus Security Academy provides practical cybersecurity training and internships focused on
+                        real-world skills.
+                        Learn Ethical Hacking, SOC, SIEM, Cloud & Network Security through hands-on labs and
+                        industry-aligned programs.
+                        For enterprise cybersecurity services, visit Codevirus Security Private Limited.
+                    </p>
+                </div>
+
+                <!-- Two-Column Layout -->
+                <div class="flex flex-col lg:flex-row gap-8 md:gap-12">
+
+                    <!-- Left Column - Feature Image -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="rounded-2xl overflow-hidden h-full min-h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Industry Security Solutions" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Industry List -->
+                    <div class="w-full lg:w-1/2 flex flex-col justify-center">
+
+                        <!-- Healthcare -->
+                        <div class="py-6 border-b border-gray-200">
+                            <h3 class="text-xl font-semibold text-gray-100 mb-2">Healthcare</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Protect patient data and medical devices while meeting stringent healthcare regulations.
+                                HIPAA-compliant security solutions tailored for modern healthcare environments.
+                            </p>
+                        </div>
+
+                        <!-- Automotive -->
+                        <div class="py-6 border-b border-gray-200">
+                            <h3 class="text-xl font-semibold text-gray-100 mb-2">Automotive</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Future-ready vehicle and mobility security with proven threat protection. Secure
+                                connected vehicles and manufacturing systems against evolving cyber threats.
+                            </p>
+                        </div>
+
+                        <!-- Manufacturing -->
+                        <div class="py-6">
+                            <h3 class="text-xl font-semibold text-gray-100 mb-2">Manufacturing</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Secure factory environments from legacy systems to modern smart infrastructure. Protect
+                                OT networks and industrial control systems with specialized solutions.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- ============================================ -->
+<!-- SECTION 5: Insights and Analysis -->
+<!-- ============================================ -->
+<section
+    class="light-blue-gradient w-full py-16 md:py-24 lg:py-28
+           bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/img/blue.jpg');"
+>
+    <div class="max-w-[1000px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12 md:mb-16">
+                  <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-5">
+                        Cybersecurity Insights & Research Hub
+                    </h2>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        Practical cybersecurity insights, real-world threat analysis, and research-backed reports by
+                        Codevirus Security experts.
+                        Stay updated with evolving cyber threats, defense strategies, and future-ready security trends.
+                    </p>
+                </div>
+
+                <!-- Article Cards -->
+                <div class="space-y-6">
+
+                    <!-- Article 1 -->
+                    <div class="bg-[#0f1623] rounded-2xl overflow-hidden shadow-sm float-card">
+                        <div class="flex flex-col md:flex-row">
+                            <!-- Article Image -->
+                            <div class="w-full md:w-2/5 aspect-video md:aspect-auto">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    alt="DDoS Attack Analysis" class="w-full h-full object-cover min-h-[200px]"
+                                    loading="lazy">
+                            </div>
+
+                            <!-- Article Content -->
+                            <div class="w-full md:w-3/5 p-6 sm:p-8 flex flex-col justify-center">
+                                <span
+                                    class="inline-block bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full mb-4 w-fit">
+                                    Reports
+                                </span>
+                                <h3 class="text-lg md:text-xl font-semibold text-gray-100 mb-3">
+                                    Cyber Threat Landscape Report – 2025
+                                </h3>
+                                <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                                    An in-depth analysis of emerging cyber threats, attack vectors, and risk patterns
+                                    affecting enterprises, governments, and educational institutions.
+                                </p>
+                                <div class="text-xs text-gray-400">
+                                    <span class="font-medium text-gray-600">Sarah Chen</span> · March 15, 2025
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="bg-[#0f1623] rounded-2xl overflow-hidden shadow-sm float-card">
+                        <div class="flex flex-col md:flex-row">
+                            <!-- Article Image -->
+                            <div class="w-full md:w-2/5 aspect-video md:aspect-auto">
+                                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    alt="Quantum Computing Security" class="w-full h-full object-cover min-h-[200px]"
+                                    loading="lazy">
+                            </div>
+
+                            <!-- Article Content -->
+                            <div class="w-full md:w-3/5 p-6 sm:p-8 flex flex-col justify-center">
+                                <span
+                                    class="inline-block bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full mb-4 w-fit">
+                                    Reports
+                                </span>
+                                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
+                                    The Rising Threat of DDoS Attacks on Modern Networks
+                                </h3>
+                                <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                    A practical study of volumetric, protocol, and application-layer DDoS attacks with
+                                    real-world mitigation strategies.
+                                </p>
+                                <div class="text-xs text-gray-400">
+                                    <span class="font-medium text-gray-600">Dr. Michael Torres</span> · March 8, 2025
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CTA Button -->
+                <div class="text-center mt-10 md:mt-14">
+                    <a href="/resources"
+                        class="inline-flex items-center btn-gradient text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-xl">
+                        Explore All Resources
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 6: Testimonials and Trust -->
+        <!-- ============================================ -->
+        <section class="w-full bg-[#0f1623] py-16 md:py-24 lg:py-28">
+            <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12 md:mb-16
+            bg-black/50 backdrop-blur-md
+            rounded-2xl p-6 sm:p-8
+            text-white">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 leading-tight mb-5">
+                        Build real cybersecurity skills. Learn from real industry experts.
+                    </h2>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        Codevirus Security Academy stands apart by offering real-world cybersecurity training led by
+                        industry experts actively working on live security projects. Our hands-on approach, practical
+                        labs, and industry-aligned curriculum prepare students to handle real cyber threats with
+                        confidence and professional expertise.
+                    </p>
+                </div>
+
+                <!-- Two-Column Layout -->
+                <div class="flex flex-col lg:flex-row gap-8 md:gap-12 mb-16">
+
+                    <!-- Left Column - Testimonial Card -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 md:p-10 h-full border border-gray-100 float-card">
+                            <!-- Company Logo -->
+                            <div class="mb-6">
+                                <svg class="h-8 text-gray-400" viewBox="0 0 120 30" fill="currentColor">
+                                    <text x="0" y="22" font-family="Inter, sans-serif" font-weight="700"
+                                        font-size="18">TECHCORP</text>
+                                </svg>
+                            </div>
+
+                            <!-- Quote -->
+                            <blockquote class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                                "Axionet has completely transformed how we approach cybersecurity. The platform
+                                centralized our threat intelligence and enabled seamless response coordination across
+                                multiple teams and IT organizations. We've reduced our incident response time by 60%."
+                            </blockquote>
+
+                            <!-- Author -->
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                        alt="Robert Anderson" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-100">Robert Anderson</p>
+                                    <p class="text-sm text-gray-400">CISO, TechCorp Industries</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Image -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="rounded-2xl overflow-hidden h-full min-h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Business leader in modern office" class="w-full h-full object-cover"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Logos -->
+                <div class="border-t border-gray-900 pt-12">
+                    <p class="text-center text-sm text-gray-500 mb-8">Trusted by leading organizations worldwide</p>
+                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-50 grayscale">
+                        <svg class="h-8" viewBox="0 0 100 30" fill="currentColor">
+                            <text x="0" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="16"
+                                fill="#888">Microsoft</text>
+                        </svg>
+                        <svg class="h-8" viewBox="0 0 80 30" fill="currentColor">
+                            <text x="0" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="16"
+                                fill="#888">Google</text>
+                        </svg>
+                        <svg class="h-8" viewBox="0 0 80 30" fill="currentColor">
+                            <text x="0" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="16"
+                                fill="#888">Amazon</text>
+                        </svg>
+                        <svg class="h-8" viewBox="0 0 60 30" fill="currentColor">
+                            <text x="0" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="16"
+                                fill="#888">Meta</text>
+                        </svg>
+                        <svg class="h-8" viewBox="0 0 80 30" fill="currentColor">
+                            <text x="0" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="16"
+                                fill="#888">Salesforce</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 7: FAQ Section -->
+        <!-- ============================================ -->
+        <section class="light-blue-gradient w-full py-16 md:py-24 lg:py-28">
+            <div class="max-w-[900px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-xl mb-10 md:mb-14">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
+                        Frequently<br>
+                        Asked Questions
+                    </h2>
+                    <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                        A detailed list of frequently asked questions that offers valuable insights and answers about
+                        our services.
+                    </p>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="space-y-4">
+
+                    <!-- FAQ Item 1 (Active by default) -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">What is Codevirus Security
+                                Academy?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Codevirus Security Academy is a professional training institute focused on
+                                cybersecurity, ethical hacking, cloud security, SOC, and advanced IT skills with
+                                real-world exposure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Who can join the academy?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Students from BCA, BTech, MCA, Diploma, IT background, as well as working professionals
+                                and beginners interested in cybersecurity can join.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4"> Do I need prior technical
+                                knowledge?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                No. Basic computer knowledge is enough. We start from fundamentals and gradually move to
+                                advanced concepts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4"> Are the courses
+                                beginner-friendly?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. All courses are designed in a step-by-step learning approach, suitable for
+                                beginners as well as intermediate learners.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">What modes of training are
+                                available?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                We offer online live training, offline classroom training, and hybrid modes depending on
+                                the course.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Do you provide practical hands-on
+                                training?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Our training focuses heavily on hands-on labs, real-world scenarios, tools, and
+                                case-based learning.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4"> Will I get a certificate after
+                                completion?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Students receive an industry-recognized course completion certificate from
+                                Codevirus Security Academy.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Are internships provided?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Selected courses include internship opportunities with practical projects and
+                                mentorship support.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4"> Are projects included in the
+                                courses?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Every major course includes real-time projects aligned with industry requirements.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4"> Do you provide placement
+                                assistance?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                You can sign up for a free Axionet account directly on our website. Visit our pricing
+                                page and select the Free tier to get started with basic features at no cost.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Are the trainers industry
+                                professionals?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. All trainers have real industry experience in cybersecurity, network security, and
+                                enterprise environments.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">What tools and technologies are
+                                covered?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Students work on industry-standard tools used in VAPT, SOC, cloud security, network
+                                security, and ethical hacking.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Is the training suitable for
+                                government job aspirants?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Our courses help build technical skills useful for government exams, cyber cells,
+                                and security roles.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 14 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Do you provide doubt-clearing
+                                sessions?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Regular live doubt sessions and mentor support are provided during the course.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 15 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Are study materials provided?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Students get notes, learning resources, recorded sessions (where applicable), and
+                                practice materials.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 16 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Is the certification valid for
+                                resumes and LinkedIn?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Yes. Our certification can be added to resumes, LinkedIn profiles, and academic records.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 17 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Can working professionals join the
+                                courses?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Course duration varies from short-term programs to long-term professional training,
+                                depending on the course.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">How long are the courses?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Course duration varies from short-term programs to long-term professional training,
+                                depending on the course.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 19 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4"> How can I enroll in a course?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                You can enroll through our official website, WhatsApp support, or by contacting our
+                                admissions team.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 20 -->
+                    <div class="faq-item bg-[#0f1623] rounded-xl md:rounded-2xl float-card">
+                        <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left">
+                            <span class="text-base font-medium text-gray-100 pr-4">Why should I choose Codevirus
+                                Security Academy?</span>
+                            <span class="flex-shrink-0 text-gray-400">
+                                <svg class="faq-icon-plus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <svg class="faq-icon-minus w-5 h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6">
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                You can sign up for a free Axionet account directly on our website. Visit our pricing
+                                page and select the Free tier to get started with basic features at no cost.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-10 md:mt-12">
+                    <a href="/faq"
+                        class="inline-flex items-center btn-gradient text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-xl">
+                        Explore All FAQs
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 8: Pricing Section -->
+        <!-- ============================================ -->
+        <section class="w-full bg-[#0f1623] py-16 md:py-24 lg:py-28">
+            <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12 md:mb-16
+            bg-black/50 backdrop-blur-md
+            rounded-2xl p-6 sm:p-8
+            text-white">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 leading-tight mb-5">
+                        Pricing Plans<br>
+                        for Businesses
+                    </h2>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        We offer flexible pricing options tailored for developers and businesses, designed to
+                        accommodate a range of needs and budgets.
+                    </p>
+                </div>
+
+                <!-- Pricing Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+
+                    <!-- Free Plan -->
+                    <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 float-card">
+                        <!-- Plan Header -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Free</h3>
+                            <div class="flex items-baseline">
+                                <span class="text-4xl md:text-5xl font-bold text-gray-900">$0</span>
+                                <span class="text-gray-500 ml-2">/ Month</span>
+                            </div>
+                            <p class="text-sm text-gray-400 mt-2">Perfect for getting started</p>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="/contact"
+                            class="w-full inline-flex items-center justify-center btn-gradient text-white font-semibold text-base px-6 py-3 rounded-full mb-8">
+                            Contact Us
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- Features -->
+                        <div class="space-y-6">
+                            <!-- Authentication -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Authentication</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>External Active Users: 5,000</li>
+                                    <li>M2M Authentication: 1,000</li>
+                                    <li>Email Workflow</li>
+                                    <li>Accessibility</li>
+                                </ul>
+                            </div>
+
+                            <!-- Branding -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Branding</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Customize Signup & Login</li>
+                                    <li>Custom Domain</li>
+                                    <li>Email Workflow</li>
+                                    <li>Accessibility</li>
+                                </ul>
+                            </div>
+
+                            <!-- Extensibility -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Extensibility</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Actions + Forms: 3</li>
+                                    <li>The Actions Library</li>
+                                    <li>Pro Forms</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Essentials Plan -->
+                    <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-500 float-card">
+                        <!-- Plan Header -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Essentials</h3>
+                            <div class="flex items-baseline">
+                                <span class="text-4xl md:text-5xl font-bold text-gray-900">$59</span>
+                                <span class="text-gray-500 ml-2">/ Month</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">For growing teams</p>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="/contact"
+                            class="w-full inline-flex items-center justify-center border-2 border-gray-700 text-gray-700 font-semibold text-base px-6 py-3 rounded-full mb-8 hover:bg-gray-700 hover:text-white transition-all duration-200">
+                            Contact Us
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- Features -->
+                        <div class="space-y-6">
+                            <!-- Authentication -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Authentication</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>External Active Users: 25,000</li>
+                                    <li>M2M Authentication: 5,000</li>
+                                    <li>External Database</li>
+                                    <li>Long Lived Sessions</li>
+                                </ul>
+                            </div>
+
+                            <!-- Branding -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Branding</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Customize Signup & Login</li>
+                                    <li>Custom Domains</li>
+                                    <li>Email Workflow</li>
+                                    <li>Accessibility</li>
+                                </ul>
+                            </div>
+
+                            <!-- Extensibility -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Extensibility</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Actions + Forms: 15</li>
+                                    <li>The Actions Library</li>
+                                    <li>Marketplace</li>
+                                    <li>Pro Forms</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Plan -->
+                    <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 float-card">
+                        <!-- Plan Header -->
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Professional</h3>
+                            <div class="flex items-baseline">
+                                <span class="text-4xl md:text-5xl font-bold text-gray-900">$149</span>
+                                <span class="text-gray-500 ml-2">/ Month</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">For enterprise needs</p>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="/contact"
+                            class="w-full inline-flex items-center justify-center border-2 border-gray-700 text-gray-700 font-semibold text-base px-6 py-3 rounded-full mb-8 hover:bg-gray-700 hover:text-white transition-all duration-200">
+                            Contact Us
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- Features -->
+                        <div class="space-y-6">
+                            <!-- Authentication -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Authentication</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Unlimited External Active Users</li>
+                                    <li>M2M Authentication: 15,000</li>
+                                    <li>External Database</li>
+                                    <li>Long Lived Sessions</li>
+                                </ul>
+                            </div>
+
+                            <!-- Branding -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Branding</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Customize Signup & Login</li>
+                                    <li>Custom Domains</li>
+                                    <li>Email Workflow</li>
+                                    <li>Accessibility</li>
+                                </ul>
+                            </div>
+
+                            <!-- Extensibility -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Extensibility</h4>
+                                <ul class="space-y-2 text-sm text-gray-500">
+                                    <li>Actions + Forms: 3</li>
+                                    <li>The Actions Library</li>
+                                    <li>Marketplace</li>
+                                    <li>Pro Forms</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Compare Plans CTA -->
+                <div class="text-center">
+                    <a href="/pricing"
+                        class="inline-flex items-center btn-gradient text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-xl">
+                        Compare All Plans
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 9: Final CTA Section -->
+        <!-- ============================================ -->
+        <section class="light-blue-gradient w-full py-16 md:py-24 lg:py-28
+           bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/img/final.jpeg');">
+            <div class="max-w-[1100px] mx-auto px-6 sm:px-8 md:px-12">
+                <!-- Main Heading & Description -->
+                <div class="max-w-2xl mb-12 md:mb-16
+            bg-black/50 backdrop-blur-md
+            rounded-2xl p-6 sm:p-8
+            text-white">
+                    <h2
+                        class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-100 leading-tight mb-5 md:mb-6">
+                        Start Your Journey<br>
+                        with Axionet Today
+                    </h2>
+                    <p class="text-base text-gray-300 max-w-lg leading-relaxed">
+                        Begin your journey with Axionet today and discover how our solutions can enhance your business's
+                        security and efficiency.
+                    </p>
+                </div>
+
+                <!-- CTA Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+                    <!-- CTA Card 1 - Contact Team -->
+                    <div class="bg-[#0f1623] rounded-2xl overflow-hidden shadow-sm float-card p-6 sm:p-8 shadow-sm">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-100 mb-3 md:mb-4">
+                            Get in Touch with Our Team
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 mb-6 leading-relaxed">
+                            Let's discuss how Axionet can secure your business, enabling it to scale quickly and
+                            effectively.
+                        </p>
+                        <a href="/contact"
+                            class="inline-flex items-center btn-gradient text-white font-medium text-sm md:text-base px-5 md:px-6 py-2.5 md:py-3 rounded-full transition-all duration-200">
+                            Contact Us
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- CTA Card 2 - Free Trial -->
+                    <div class="bg-[#0f1623] rounded-2xl overflow-hidden shadow-sm float-card p-6 sm:p-8 shadow-sm">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-100 mb-3 md:mb-4">
+                            Enjoy Free Trial of Our Services
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 mb-6 leading-relaxed">
+                            Experience it for yourself and witness the transformative difference one platform can make
+                            in your business.
+                        </p>
+                        <a href="/pricing"
+                            class="inline-flex items-center btn-gradient text-white font-medium text-sm md:text-base px-5 md:px-6 py-2.5 md:py-3 rounded-full transition-all duration-200">
+                            Check pricing
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                        </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <%- include('includes/footer.ejs') %>
+
+
+            <!-- ============================================ -->
+            <!-- JavaScript for FAQ Accordion -->
+            <!-- ============================================ -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // FAQ Accordion Functionality
+                    const faqItems = document.querySelectorAll('.faq-item');
+
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question');
+
+                        question.addEventListener('click', function () {
+                            // Check if this item is already active
+                            const isActive = item.classList.contains('active');
+
+                            // Close all FAQ items
+                            faqItems.forEach(faq => {
+                                faq.classList.remove('active');
+                            });
+
+                            // If the clicked item wasn't active, open it
+                            if (!isActive) {
+                                item.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            </script>
+            <!-- cursor glow element -->
+            <div id="cursor-glow"></div>
+
+            <!-- FAQ Script -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const faqItems = document.querySelectorAll('.faq-item');
+
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question');
+                        question.addEventListener('click', function () {
+                            const isActive = item.classList.contains('active');
+                            faqItems.forEach(faq => faq.classList.remove('active'));
+                            if (!isActive) item.classList.add('active');
+                        });
+                    });
+                });
+            </script>
+
+            <!-- Cursor Glow Script -->
+            <script>
+                const cursorGlow = document.getElementById("cursor-glow");
+
+                document.addEventListener("mousemove", (e) => {
+                    cursorGlow.style.left = e.clientX + "px";
+                    cursorGlow.style.top = e.clientY + "px";
+                    cursorGlow.style.opacity = "1";
+                });
+
+                document.addEventListener("mouseleave", () => {
+                    cursorGlow.style.opacity = "0";
+                });
+            </script>
+
+</body>
+
+</html>

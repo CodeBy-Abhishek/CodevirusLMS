@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Become a Teacher</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .teacher-container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    textarea,
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 90px;
+    }
+
+    textarea::placeholder,
+    input::placeholder {
+      color: #d1d5db;
+    }
+
+    textarea:focus,
+    input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.6);
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.5);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 480px) {
+      .teacher-container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="teacher-container">
+    <h1>Become a Teacher</h1>
+
+    <form method="POST" action="/become-teacher">
+      <textarea name="bio" placeholder="Tell us about yourself" required></textarea>
+
+      <input
+        type="text"
+        name="expertise"
+        placeholder="Expertise (Web, Java, Cyber)"
+        required
+      />
+
+      <input
+        type="number"
+        name="experience"
+        placeholder="Experience (years)"
+        required
+      />
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+</body>
+</html>

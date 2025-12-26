@@ -1,0 +1,300 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* ================= PAGE WRAPPER ================= */
+.page-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px 90px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 36px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 60px;
+}
+
+/* LEFT IMAGE */
+.hero-left img {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* RIGHT TEXT */
+.hero-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero-text p {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-outline {
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #cbd5f5;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 30px;
+}
+
+.stats div h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stats div span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ================= TRUSTED ================= */
+.trusted {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.trusted p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.logos {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ================= ABOUT ================= */
+.course-about {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 60px;
+}
+
+.course-about h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.course-about p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ================= FEATURES + BUY ================= */
+.course-features {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+
+/* FEATURES */
+.features-left h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.features-left ul {
+  list-style: none;
+}
+
+.features-left li {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+/* BUY CARD */
+.course-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+}
+
+.course-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.price .current {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.offer {
+  margin: 10px 0 20px;
+  font-size: 13px;
+  color: #dc2626;
+}
+
+/* BUY BUTTON */
+.buy-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* CARD FEATURES */
+.card-features {
+  list-style: none;
+}
+
+.card-features li {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+/* ================= REVIEWS ================= */
+.reviews-section {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+}
+
+.reviews-section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.reviews-section p {
+  font-size: 14px;
+  color: #475569;
+}
+
+.reviews-section a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* REVIEW FORM */
+.reviews-section form {
+  margin-bottom: 30px;
+}
+
+.reviews-section label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.reviews-section input,
+.reviews-section textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.reviews-section textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* REVIEW CARD */
+.review-card {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 14px;
+}
+
+.review-card small {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .course-features {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .logos {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+}

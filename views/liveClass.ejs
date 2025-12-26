@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= course.title %> | Live Class</title>
+
+  <link rel="stylesheet" href="/css/liveClass.css" />
+</head>
+
+<body
+  data-room-id="<%= liveClass.roomId %>"
+  data-is-teacher="<%= user && String(user._id) === String(liveClass.teacher) %>"
+>
+
+<div class="live-container">
+
+  <header class="live-header">
+    <h2><%= course.title %> — Live Class</h2>
+    <span class="live-badge">LIVE</span>
+  </header>
+
+  <div class="video-wrapper">
+    <video id="video" autoplay playsinline muted></video>
+
+    <!-- CONTROLS (Teacher Only) -->
+    <% if (user && String(user._id) === String(liveClass.teacher)) { %>
+      <div class="controls">
+        <button id="micBtn" class="control-btn">🎤 Mute</button>
+        <button id="camBtn" class="control-btn">🎥 Camera Off</button>
+      </div>
+    <% } %>
+  </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+/* ================= BASIC SETUP ================= */
+const socket = io();
+
+const roomId = document.body.dataset.roomId;
+const isTeacher = document.body.dataset.isTeacher === "true";
+
+const video = document.getElementById("video");
+const micBtn = document.getElementById("micBtn");
+const camBtn = document.getElementById("camBtn");
+
+let localStream = null;
+let micOn = true;
+let camOn = true;
+
+/* Teacher → many students */
+const peers = {};
+
+/* Student → one teacher */
+let studentPeer = null;
+
+socket.emit("join-room", roomId);
+
+/* ================= TEACHER ================= */
+if (isTeacher) {
+  navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    .then(stream => {
+      localStream = stream;
+      video.srcObject = stream;
+    })
+    .catch(() => alert("Camera & Mic permission required"));
+
+  socket.on("user-joined", async (studentId) => {
+    if (!localStream) return;
+
+    const peer = new RTCPeerConnection({
+      iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+    });
+
+    peers[studentId] = peer;
+
+    localStream.getTracks().forEach(track => {
+      peer.addTrack(track, localStream);
+    });
+
+    peer.onicecandidate = e => {
+      if (e.candidate) {
+        socket.emit("ice-candidate", {
+          to: studentId,
+          candidate: e.candidate
+        });
+      }
+    };
+
+    const offer = await peer.createOffer();
+    await peer.setLocalDescription(offer);
+
+    socket.emit("offer", {
+      to: studentId,
+      offer
+    });
+  });
+}
+
+/* ================= STUDENT ================= */
+if (!isTeacher) {
+  studentPeer = new RTCPeerConnection({
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+  });
+
+  studentPeer.ontrack = (event) => {
+    video.srcObject = event.streams[0];
+  };
+
+  studentPeer.onicecandidate = e => {
+    if (e.candidate && window.teacherId) {
+      socket.emit("ice-candidate", {
+        to: window.teacherId,
+        candidate: e.candidate
+      });
+    }
+  };
+}
+
+/* ================= SIGNALING ================= */
+socket.on("offer", async ({ from, offer }) => {
+  if (isTeacher) return;
+
+  window.teacherId = from;
+
+  await studentPeer.setRemoteDescription(offer);
+  const answer = await studentPeer.createAnswer();
+  await studentPeer.setLocalDescription(answer);
+
+  socket.emit("answer", {
+    to: from,
+    answer
+  });
+});
+
+socket.on("answer", async ({ from, answer }) => {
+  if (peers[from]) {
+    await peers[from].setRemoteDescription(answer);
+  }
+});
+
+socket.on("ice-candidate", async ({ from, candidate }) => {
+  const peer = peers[from] || studentPeer;
+  if (peer && candidate) {
+    await peer.addIceCandidate(candidate);
+  }
+});
+
+/* ================= MIC TOGGLE ================= */
+if (micBtn) {
+  micBtn.onclick = () => {
+    micOn = !micOn;
+    localStream.getAudioTracks().forEach(t => t.enabled = micOn);
+    micBtn.textContent = micOn ? "🎤 Mute" : "🔇 Unmute";
+  };
+}
+
+/* ================= CAMERA TOGGLE ================= */
+if (camBtn) {
+  camBtn.onclick = () => {
+    camOn = !camOn;
+    localStream.getVideoTracks().forEach(t => t.enabled = camOn);
+    camBtn.textContent = camOn ? "🎥 Camera Off" : "📷 Camera On";
+  };
+}
+</script>
+
+</body>
+</html>

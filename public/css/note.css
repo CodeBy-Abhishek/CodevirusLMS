@@ -1,0 +1,165 @@
+
+/* New code */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #020617,
+    #0f172a,
+    #0b3c5d,
+    #0ea5e9
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 14s ease infinite;
+}
+
+/* Animated background */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.notes-container {
+  max-width: 1000px;
+  margin: 90px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0 16px;
+  perspective: 1400px; /* 3D space */
+}
+
+/* ================= CARD ================= */
+.note-card {
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border-radius: 22px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 rgba(255, 255, 255, 0.1);
+
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  cursor: pointer;
+
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* 3D LIFT EFFECT */
+.note-card:hover {
+  transform:
+    translateY(-18px)
+    translateZ(40px)
+    rotateX(6deg);
+  box-shadow:
+    0 50px 100px rgba(14, 165, 233, 0.45),
+    0 0 50px rgba(34, 197, 94, 0.35);
+  border-color: rgba(14, 165, 233, 0.7);
+}
+
+/* Light reflection overlay */
+.note-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.note-card:hover::before {
+  opacity: 1;
+}
+
+/* ================= LEFT ICON ================= */
+.note-left img {
+  width: 62px;
+  height: 62px;
+  padding: 12px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.5),
+    rgba(34, 197, 94, 0.5)
+  );
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.6);
+  transform: translateZ(35px);
+}
+
+/* ================= TEXT ================= */
+.note-center {
+  flex: 1;
+  transform: translateZ(25px);
+}
+
+.note-center h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+.note-center p {
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* ================= BUTTON ================= */
+.note-right button {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: #ffffff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  box-shadow: 0 14px 35px rgba(14, 165, 233, 0.55);
+  transform: translateZ(40px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ZOOM EFFECT */
+.note-right button:hover {
+  transform: translateZ(50px) scale(1.15);
+  box-shadow: 0 25px 55px rgba(34, 197, 94, 0.75);
+}
+
+/* ================= ENTRY ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

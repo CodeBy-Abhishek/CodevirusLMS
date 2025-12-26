@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeVirus Security</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+
+<header class="cyber-navbar">
+
+    <!-- LOGO -->
+    <div class="cyber-logo">
+        <span class="cv-blue">CodeVirus</span>
+        <span class="cv-security">Security</span>
+    </div>
+
+    <!-- NAV LINKS -->
+    <ul class="cyber-nav-links">
+
+        <li><a href="/home" class="nav-link">Home</a></li>
+        <li><a href="/home/aboutus" class="nav-link">About Us</a></li>
+        <li><a href="/home/course" class="nav-link">Courses</a></li>
+        <li><a href="/notes" class="nav-link">Notes</a></li>
+        <li><a href="/afterbuy" class="nav-link">Dashboard</a></li>
+
+        <% if (!user) { %>
+            <li>
+                <a href="/home/login" class="nav-btn">Register</a>
+            </li>
+        <% } else { %>
+            <li class="profile-wrapper" onclick="toggleProfile(event)">
+                <div class="profile-circle">
+                    <%= user.username.charAt(0).toUpperCase() %>
+                </div>
+                <span class="profile-name"><%= user.username %></span>
+
+                <!-- PROFILE DROPDOWN -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="/admin/dashboard">Admin Dashboard</a>
+                    <a href="/teacher/dashboard">Teacher Dashboard</a>
+                    <a href="/become-teacher">Apply for Job</a>
+                    <hr />
+                    <a href="/logout" class="logout-btn">Logout</a>
+                </div>
+            </li>
+        <% } %>
+
+    </ul>
+</header>
+
+<!-- PROFILE DROPDOWN SCRIPT -->
+<script>
+function toggleProfile(event) {
+    event.stopPropagation();
+    const dropdown = document.getElementById("profileDropdown");
+    dropdown.classList.toggle("show");
+}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function () {
+    const dropdown = document.getElementById("profileDropdown");
+    if (dropdown) dropdown.classList.remove("show");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Axionet</title>
+    <link rel="stylesheet" href="/css/aboutus.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Section 1: Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                #f8fbff 25%, 
+                #eef5ff 50%, 
+                #e0edff 75%, 
+                #d4e5ff 100%
+            );
+        }
+        
+        /* Section 3 & 5 & 7: Light Blue Gradient */
+        .light-blue-gradient {
+            background: linear-gradient(135deg, 
+                #f0f9ff 0%, 
+                #e8f4fc 25%,
+                #f5faff 50%, 
+                #e8f4fc 75%,
+                #f0f9ff 100%
+            );
+        }
+        
+        /* Section 7: CTA Button Gradient */
+        .btn-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+        }
+        
+        /* Section 4: Timeline Tabs */
+        .year-tab {
+            position: relative;
+            cursor: pointer;
+            padding-bottom: 0.75rem;
+            transition: color 0.2s ease;
+        }
+        
+        .year-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+            transition: background-color 0.2s ease;
+        }
+        
+        .year-tab.active {
+            color: #3b82f6;
+        }
+        
+        .year-tab.active::after {
+            background-color: #3b82f6;
+        }
+        
+        .timeline-content {
+            display: none;
+        }
+        
+        .timeline-content.active {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased">
+    <%- include('includes/header.ejs') %>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: Hero / Identity Section -->
+    <!-- ============================================ -->
+  <section class="video-section">
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="/vidio/aboutus.mp4" type="video/mp4">
+  </video>
+
+  <div class="video-content">
+    <h1></h1>
+    <p></p>
+  </div>
+</section>
+
+
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: Global Leaders in Security -->
+    <!-- ============================================ -->
+    <section class="w-full bg-white py-16 md:py-24 lg:py-28">
+        <div class="max-w-[1000px] mx-auto px-6 sm:px-8 md:px-12">
+            <!-- Section Heading -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 text-center mb-5">
+                Global Leaders in Security
+            </h2>
+            
+            <!-- Image Card -->
+            <div class="w-full rounded-xl md:rounded-2xl overflow-hidden mb-8 md:mb-12 float-3d">
+                <img 
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                    alt="Professional team meeting in modern office" 
+                    class="w-full h-auto object-cover"
+                    loading="lazy"
+                >
+            </div>
+            
+            <!-- Text Content -->
+            <div class="max-w-[850px] mx-auto text-left space-y-5">
+                <p class="text-sm md:text-base text-gray-100 leading-relaxed">
+                    Since our inception in 2019, Axionet has become the leading independent Identity partner for organizations worldwide. We are relentlessly focused on Customer and Workforce Identity, ensuring our customers can provide secure access and seamless experiences for their customers, employees, and partners.
+                </p>
+                <p class="text-sm md:text-base text-gray-100 leading-relaxed">
+                    With flexibility and customer choice at our core, our solutions empower everyone — from emerging developers to leaders of the world's largest organizations — to build and manage their tech stack their way. Axionet works anywhere, on any device, with any technology.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: Mission / Vision Section -->
+    <!-- ============================================ -->
+    <section class="light-blue-gradient w-full py-16 md:py-24 lg:py-28">
+        <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+            <!-- Section Heading -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 text-center mb-12 md:mb-16">
+                Building a Safer Internet
+            </h2>
+            
+            <!-- Two Column Layout -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-stretch gap-8 md:gap-10">
+                
+                <!-- Left Column - Text Card -->
+                <div class="w-full lg:w-1/2 bg-white rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col justify-between">
+                    <div>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-5">
+                            Our vision is to accelerate a world where everyone can safely use any technology. At Axionet, we deliver simple and secure access to people and organizations everywhere.
+                        </p>
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                            We promise to not only protect the identities of our customers' workforce and users but to continually ask, 'what more can we make possible?'
+                        </p>
+                    </div>
+                    
+                    <!-- Signature Area -->
+                    <div class="pt-8 mt-8 border-t border-gray-100">
+                        <p class="text-base font-semibold text-gray-800">Billy Wesley</p>
+                        <p class="text-sm text-gray-500 mt-1">Founder and CEO, Axionet</p>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Image Card -->
+                <div class="w-full lg:w-1/2">
+                    <div class="rounded-xl md:rounded-2xl overflow-hidden h-full float-3d">
+                        <img 
+                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="Billy Wesley - Founder and CEO" 
+                            class="w-full h-full object-cover min-h-[300px] lg:min-h-full"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: Timeline / Milestones Section -->
+    <!-- ============================================ -->
+    <section class="w-full bg-white py-16 md:py-24 lg:py-28">
+        <div class="max-w-[1100px] mx-auto px-6 sm:px-8 md:px-12">
+            <!-- Section Heading -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 text-center mb-10 md:mb-12">
+                Milestones in Axionet's Legacy
+            </h2>
+            
+            <!-- Year Navigation Tabs -->
+            <div class="flex justify-center flex-wrap gap-4 sm:gap-6 md:gap-10 mb-8 border-b border-gray-200 pb-4">
+                <button class="year-tab active text-sm sm:text-base md:text-lg font-medium text-blue-500" data-year="2025">2025</button>
+                <button class="year-tab text-sm sm:text-base md:text-lg font-medium text-gray-400" data-year="2024">2024</button>
+                <button class="year-tab text-sm sm:text-base md:text-lg font-medium text-gray-400" data-year="2023">2023</button>
+                <button class="year-tab text-sm sm:text-base md:text-lg font-medium text-gray-400" data-year="2022">2022</button>
+                <button class="year-tab text-sm sm:text-base md:text-lg font-medium text-gray-400" data-year="2021">2021</button>
+                <button class="year-tab text-sm sm:text-base md:text-lg font-medium text-gray-400" data-year="2020">2020</button>
+            </div>
+            
+            <!-- Timeline Content Container -->
+            <div class="mt-8 md:mt-12">
+                
+                <!-- 2025 Content -->
+                <div class="timeline-content active flex-col lg:flex-row items-center gap-8 md:gap-10" id="content-2025">
+                    <div class="w-full lg:w-1/2 rounded-xl md:rounded-2xl overflow-hidden float-3d">
+                        <img 
+                            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="AI Technology Partnership 2025" 
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-gray-50 rounded-xl md:rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                            2025: Partnership with OpenAI – A New Chapter in Security Innovation
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                            In 2025, Axionet's partnership with OpenAI marked a pivotal shift. Combining our expertise with this leading platform, we created a groundbreaking security solution. This collaboration not only enhanced our offerings but also solidified our position as a leader in identity management innovation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 2024 Content -->
+                <div class="timeline-content flex-col lg:flex-row items-center gap-8 md:gap-10" id="content-2024">
+                    <div class="w-full lg:w-1/2 rounded-xl md:rounded-2xl overflow-hidden float-3d">
+                        <img 
+                            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="AI Technology Partnership 2024" 
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-gray-50 rounded-xl md:rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                            2024: A New Chapter in Security Innovation Through Partnership with OpenAI
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                            In 2024, Axionet's partnership with OpenAI signified a major transformation. By merging our expertise with this leading platform, we developed a revolutionary security solution. This collaboration strengthened our offerings and reinforced our role as a pioneer in identity management innovation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 2023 Content -->
+                <div class="timeline-content flex-col lg:flex-row items-center gap-8 md:gap-10" id="content-2023">
+                    <div class="w-full lg:w-1/2 rounded-xl md:rounded-2xl overflow-hidden float-3d">
+                        <img 
+                            src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="AI Technology Partnership 2023" 
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-gray-50 rounded-xl md:rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                            2023: A New Era of Security Innovation Through Partnership with OpenAI
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                            In 2023, Axionet's partnership with OpenAI signaled a significant transformation. By integrating our expertise with this leading platform, we developed an innovative security solution. This collaboration strengthened our offerings and reinforced our leadership in identity management innovation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 2022 Content -->
+                <div class="timeline-content flex-col lg:flex-row items-center gap-8 md:gap-10" id="content-2022">
+                    <div class="w-full lg:w-1/2 rounded-xl md:rounded-2xl overflow-hidden float-3d">
+                        <img 
+                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="AI Technology Partnership 2022" 
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-gray-50 rounded-xl md:rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                            2022: A New Chapter in Security Innovation Through Partnership with OpenAI
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                            In 2022, Axionet's collaboration with OpenAI marked a transformative milestone. Leveraging our expertise with this leading platform, we developed an innovative security solution. This partnership strengthened our offerings and reinforced our leadership in identity management innovation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 2021 Content -->
+                <div class="timeline-content flex-col lg:flex-row items-center gap-8 md:gap-10" id="content-2021">
+                    <div class="w-full lg:w-1/2 rounded-xl md:rounded-2xl overflow-hidden float-3d">
+                        <img 
+                            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="AI Technology Partnership 2021" 
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-gray-50 rounded-xl md:rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                            2021: A New Era of Security Innovation Begins with OpenAI Partnership
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                            In 2021, Axionet's alliance with OpenAI marked a significant turning point. By merging our expertise with this leading platform, we developed a cutting-edge security solution. This collaboration strengthened our offerings and reinforced our position as a leader in identity management.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 2020 Content -->
+                <div class="timeline-content flex-col lg:flex-row items-center gap-8 md:gap-10" id="content-2020 float-3d">
+                    <div class="w-full lg:w-1/2 rounded-xl md:rounded-2xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="AI Technology Partnership 2020" 
+                            class="w-full h-auto object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="w-full lg:w-1/2 bg-gray-50 rounded-xl md:rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-4">
+                            2020: A New Chapter in Security Innovation Through OpenAI Partnership
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                            In 2020, Axionet's collaboration with OpenAI signified a major breakthrough. By integrating our expertise with this leading platform, we developed a revolutionary security solution. This partnership strengthened our offerings and reinforced our status as a leader in identity management innovation.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: Team Showcase Section -->
+    <!-- ============================================ -->
+    <section class="light-blue-gradient w-full py-16 md:py-24 lg:py-28">
+        <div class="max-w-[1000px] mx-auto px-6 sm:px-8 md:px-12">
+            <!-- Section Heading -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-100 text-center mb-12 md:mb-16">
+                Our Team Leads the Industry
+            </h2>
+            
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-6 text-center float-3d">
+                    <div class="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 rounded-xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                            alt="David Reynolds" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900">David Reynolds</h3>
+                    <p class="text-sm text-gray-500 mt-1">Senior Security Analyst</p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-6 text-center float-3d">
+                    <div class="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 rounded-xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                            alt="Olivia Brown" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900">Olivia Brown</h3>
+                    <p class="text-sm text-gray-500 mt-1">Incident Response Specialist</p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-6 text-center float-3d">
+                    <div class="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 rounded-xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                            alt="Emily Zhang" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900">Emily Zhang</h3>
+                    <p class="text-sm text-gray-500 mt-1">Security Operations Manager</p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-6 text-center float-3d">
+                    <div class="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 rounded-xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                            alt="Sophia Martinez" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900">Sophia Martinez</h3>
+                    <p class="text-sm text-gray-500 mt-1">Cybersecurity Consultant</p>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-6 text-center float-3d">
+                    <div class="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 rounded-xl overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                            alt="Michael Hughes" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900">Michael Hughes</h3>
+                    <p class="text-sm text-gray-500 mt-1">Threat Intelligence Specialist</p>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="bg-white rounded-xl md:rounded-2xl p-6 text-center float-3d">
+                    <div class="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 rounded-xl overflow-hidden ">
+                        <img 
+                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                            alt="James Carter" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="text-base font-semibold text-gray-900">James Carter</h3>
+                    <p class="text-sm text-gray-500 mt-1">Cybersecurity Engineer</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: Statistics / Metrics Section -->
+    <!-- ============================================ -->
+    <section class="w-full bg-white py-16 md:py-24 lg:py-28">
+        <div class="max-w-[1100px] mx-auto px-6 sm:px-8 md:px-12">
+            <!-- Section Heading -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 text-center mb-12 md:mb-16">
+                Numbers Speak Themselves
+            </h2>
+            
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Stat Card 1 -->
+                <div class="bg-gray-100 rounded-xl md:rounded-2xl p-6 sm:p-8 float-3d">
+                    <p class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3 md:mb-4">6.5T+</p>
+                    <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                        Threat queries gathered in 2023 alone.
+                    </p>
+                </div>
+                
+                <!-- Stat Card 2 -->
+                <div class="bg-gray-100 rounded-xl md:rounded-2xl p-6 sm:p-8 float-3d">
+                    <p class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3 md:mb-4">160B+</p>
+                    <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                        Threats successfully blocked in 2023 alone.
+                    </p>
+                </div>
+                
+                <!-- Stat Card 3 -->
+                <div class="bg-gray-100 rounded-xl md:rounded-2xl p-6 sm:p-8 float-3d">
+                    <p class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3 md:mb-4">#1</p>
+                    <p class="text-sm md:text-base text-gray-500 leading-relaxed">
+                        Serving enterprise customers across the globe.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: Call-to-Action Section -->
+    <!-- ============================================ -->
+    <section class="light-blue-gradient w-full py-16 md:py-24 lg:py-28">
+        <div class="max-w-[1100px] mx-auto px-6 sm:px-8 md:px-12">
+            
+            <!-- Main Heading & Description -->
+            <div class="max-w-2xl mb-10 md:mb-14">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-100 leading-tight mb-5 md:mb-6">
+                    Start Your Journey<br>
+                    with Axionet Today
+                </h2>
+                <p class="text-base text-gray-100 max-w-lg leading-relaxed">
+                    Begin your journey with Axionet today and discover how our solutions can enhance your business's security and efficiency.
+                </p>
+            </div>
+            
+            <!-- CTA Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                
+                <!-- CTA Card 1 - Contact Team -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 float-3d">
+                    <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
+                        Get in Touch with Our Team
+                    </h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-6 leading-relaxed">
+                        Let's discuss how Axionet can secure your business, enabling it to scale quickly and effectively.
+                    </p>
+                    <a 
+                        href="/contact" 
+                        class="inline-flex items-center btn-gradient text-white font-medium text-sm md:text-base px-5 md:px-6 py-2.5 md:py-3 rounded-full transition-all duration-200 "
+                    >
+                        Contact Us
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- CTA Card 2 - Free Trial -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 float-3d">
+                    <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
+                        Enjoy Free Trial of Our Services
+                    </h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-6 leading-relaxed">
+                        Experience it for yourself and witness the transformative difference one platform can make in your business.
+                    </p>
+                    <a 
+                        href="/pricing" 
+                        class="inline-flex items-center btn-gradient text-white font-medium text-sm md:text-base px-5 md:px-6 py-2.5 md:py-3 rounded-full transition-all duration-200 "
+                    >
+                        Check Pricing
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- JavaScript for Timeline Tabs (Section 4) -->
+    <!-- ============================================ -->
+    <script>
+        // Timeline Tab Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearTabs = document.querySelectorAll('.year-tab');
+            const timelineContents = document.querySelectorAll('.timeline-content');
+            
+            yearTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const selectedYear = this.getAttribute('data-year');
+                    
+                    // Remove active class from all tabs
+                    yearTabs.forEach(t => {
+                        t.classList.remove('active', 'text-blue-500');
+                        t.classList.add('text-gray-400');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active', 'text-blue-500');
+                    this.classList.remove('text-gray-400');
+                    
+                    // Hide all timeline content
+                    timelineContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show selected timeline content
+                    const selectedContent = document.getElementById('content-' + selectedYear);
+                    if (selectedContent) {
+                        selectedContent.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    <%- include('includes/footer.ejs') %>
+
+</body>
+</html>

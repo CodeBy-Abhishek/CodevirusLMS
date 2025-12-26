@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeVirus | Cybersecurity Academy</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <%- include('includes/header') %>
+
+  <!-- PAGE CENTER (ONLY THIS IS CENTERED) -->
+  <div class="page-center">
+    <div class="container">
+      <h1 class="logo">Codevirus</h1>
+      <p class="subtitle">Cybersecurity security</p>
+
+      <div class="card">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button type="button" class="tab active" id="signinTab">Sign In</button>
+          <button type="button" class="tab" id="signupTab">Sign Up</button>
+        </div>
+
+        <div class="divider">OR CONTINUE WITH</div>
+
+        <form id="authForm" method="POST" action="/login">
+
+          <div class="field" id="nameField">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Your username">
+          </div>
+
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" required>
+          </div>
+
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" required>
+          </div>
+
+          <button type="submit" class="primary-btn" id="submitBtn">
+            Sign In
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <%- include('includes/footer') %>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

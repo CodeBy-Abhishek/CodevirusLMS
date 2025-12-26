@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Courses</title>
+</head>
+
+<body style="
+  margin: 0;
+  padding: 40px;
+  background: #f4f6f8;
+  font-family: Arial, sans-serif;
+">
+
+  <h1 style="
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111827;
+  ">
+    All Courses
+  </h1>
+
+  <table style="
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-collapse: collapse;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  ">
+
+    <tr style="background: #2563eb; color: white;">
+      <th style="padding: 14px; text-align: left;">Title</th>
+      <th style="padding: 14px; text-align: left;">Price</th>
+      <th style="padding: 14px; text-align: left;">Teacher</th>
+      <th style="padding: 14px; text-align: left;">Action</th>
+    </tr>
+
+    <% courses.forEach(course => { %>
+      <tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 12px;"><%= course.title %></td>
+        <td style="padding: 12px;">₹<%= course.price %></td>
+
+        <td style="padding: 12px;">
+          <% if (course.teacher) { %>
+            <%= course.teacher._id %>
+          <% } else { %>
+            <span style="color: #6b7280;">Not Assigned</span>
+          <% } %>
+        </td>
+
+        <td style="padding: 12px;">
+          <form
+            method="POST"
+            action="/admin/course/delete/<%= course._id %>"
+            onsubmit="return confirm('Are you sure you want to delete this course?')"
+          >
+            <button style="
+              padding: 8px 14px;
+              background: #dc2626;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+            ">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+
+  </table>
+
+</body>
+</html>

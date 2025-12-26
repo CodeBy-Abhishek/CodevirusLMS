@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Course</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Create Course</h1>
+
+    <form method="POST" action="/teacher/course/new">
+
+      <input
+        type="text"
+        name="title"
+        placeholder="Course Title"
+        required
+      />
+
+      <textarea
+        name="description"
+        placeholder="Course Description"
+        required
+      ></textarea>
+
+      <input
+        type="number"
+        name="price"
+        placeholder="Price (₹)"
+        min="0"
+        required
+      />
+
+      <input
+        type="text"
+        name="thumbnail"
+        placeholder="Thumbnail Image URL"
+        required
+      />
+
+      <button type="submit">Create Course</button>
+
+    </form>
+  </div>
+
+</body>
+</html>

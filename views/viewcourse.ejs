@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= course.title %> – CodeVirus</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/viewcourse.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<%- include('includes/header') %>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+
+        <!-- LEFT IMAGE -->
+        <div class="hero-left">
+            <img src="<%= course.thumbnail %>" alt="Course Thumbnail">
+        </div>
+
+        <!-- RIGHT TEXT -->
+        <div class="hero-text">
+            <h1><%= course.title %></h1>
+
+            <p><%= course.description %></p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary">Get Started</button>
+                <button class="btn-outline">Free Trial</button>
+            </div>
+
+            <!-- STATS -->
+            <div class="stats">
+                <div>
+                    <h3>20+</h3>
+                    <span>Partners</span>
+                </div>
+                <div>
+                    <h3>100+</h3>
+                    <span>Students</span>
+                </div>
+                <div>
+                    <h3>500+</h3>
+                    <span>Labs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TRUSTED ================= -->
+    <section class="trusted">
+        <p>Trusted by professionals from</p>
+        <div class="logos">
+            <span>Google</span>
+            <span>Amazon</span>
+            <span>Microsoft</span>
+            <span>IBM</span>
+            <span>TCS</span>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="course-about">
+        <h2>About This Course</h2>
+        <p>
+            This course is designed to take you from beginner to advanced level
+            with real-world cybersecurity tools, labs, and simulations.
+        </p>
+    </section>
+
+    <!-- ================= FEATURES + BUY ================= -->
+    <section class="course-features">
+
+        <div class="features-left">
+            <h2>What You Will Learn</h2>
+            <ul>
+                <li>✔ Ethical Hacking & Penetration Testing</li>
+                <li>✔ SOC Operations & SIEM Tools</li>
+                <li>✔ Digital Forensics</li>
+                <li>✔ Web & Network Security</li>
+                <li>✔ Kali Linux & Tools</li>
+                <li>✔ Real-world Attacks</li>
+            </ul>
+        </div>
+
+        <div class="course-card">
+            <h3><%= course.title %></h3>
+
+            <div class="price">
+                <span class="current">₹<%= course.price %></span>
+            </div>
+
+            <p class="offer">🔥 Limited time offer</p>
+<form action="/courses/<%= course._id %>/buy" method="POST">
+    <button type="submit" class="buy-btn">
+        Enroll Now
+    </button>
+</form>
+
+
+
+
+            <ul class="card-features">
+                <li>✔ Lifetime Access</li>
+                <li>✔ Certificate</li>
+                <li>✔ Mentor Support</li>
+                <li>✔ Practical Labs</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <section class="reviews-section">
+
+        <h4 class="review">Leave a Review</h4>
+
+        <% if (!user) { %>
+            <p>Please <a href="/home/login">login</a> to leave a review.</p>
+        <% } else { %>
+            <form action="/courses/<%= course._id %>/reviews" method="post">
+                <label for="rating">Rating</label>
+                <input id="rating"
+                type="range" min="1" max="5" name="review[rating]" required>
+
+                <label for="comment">Comment</label>
+                <textarea name="review[comment]" id="comment"
+                required ></textarea>
+                
+
+                <button class="btn-outline">Submit</button>
+            </form>
+        <% } %>
+
+        <hr>
+
+        <h4>All Reviews</h4>
+
+        <% if (course.reviews.length === 0) { %>
+            <p>No reviews yet.</p>
+        <% } %>
+
+        <% for (let review of course.reviews) { %>
+            <div class="review-card">
+                <p><%= review.comment %></p>
+                <small>Rating: <%= review.rating %> ⭐</small>
+            </div>
+        <% } %>
+
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<%- include('includes/footer') %>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body{
+            background:#171D2A;
+            color:#fff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            font-family: Arial, sans-serif;
+        }
+        .box{
+            text-align:center;
+            background:#0f1420;
+            padding:40px;
+            border-radius:12px;
+            box-shadow:0 0 20px rgba(0,255,190,0.3);
+        }
+        a{
+            color:#00ffbf;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>⚠ Error</h1>
+        <p><%= message %></p>
+        <br>
+        <a href="/home">← Go Home</a>
+    </div>
+</body>
+</html>

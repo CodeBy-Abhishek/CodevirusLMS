@@ -1,0 +1,162 @@
+/* ================================
+   GLOBAL
+================================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f5f7fa;
+}
+
+/* ================================
+   PAGE TITLE
+================================ */
+.setting1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 120px;
+    margin-bottom: 30px;
+    color: #222;
+    font-weight: 700;
+}
+
+/* ================================
+   MAIN ACCOUNT BOX
+================================ */
+.account-box {
+    width: 90%;
+    max-width: 1050px;
+    margin: auto;
+    margin-bottom: 60px;
+    margin-top: 70px;
+    
+    display: flex;
+    gap: 35px;
+    justify-content: space-between;
+
+    padding: 40px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   CARDS
+================================ */
+.card1, .card2 {
+    flex: 1;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #eee;
+
+    transition: 0.3s ease;
+}
+
+.card1:hover, .card2:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+/* ================================
+   PROFILE SECTION
+================================ */
+.profile-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-big {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: auto;
+
+    background: linear-gradient(135deg, #4a4aef, #9677ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.profile-section h3 {
+    margin-top: 15px;
+    color: #222;
+    font-weight: 700;
+}
+
+.profile-section .email {
+    color: #666;
+    font-size: 15px;
+}
+
+/* ================================
+   FORM STYLING
+================================ */
+.settings-form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.settings-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+
+    font-size: 15px;
+    transition: 0.25s;
+}
+
+.settings-form input:focus {
+    border-color: #4a4aef;
+    background: white;
+    box-shadow: 0 0 10px rgba(74, 74, 239, 0.25);
+}
+
+/* Buttons */
+.save-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4a4aef;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    background: #2d2dd4;
+    transform: scale(1.03);
+}
+
+/* ================================
+   MOBILE VIEW
+================================ */
+@media (max-width: 900px) {
+    .account-box {
+        flex-direction: column;
+        padding: 25px;
+    }
+}

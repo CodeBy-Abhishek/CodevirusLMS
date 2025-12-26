@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= course.title %> | Course</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/insidecourse.css" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<%- include('includes/header') %>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span class="back" onclick="history.back()">
+    ← <%= course.title %>
+  </span>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="course-container">
+
+  <!-- ================= LEFT VIDEO SECTION ================= -->
+  <div class="video-section">
+    <h2 id="videoTitle" class="video-title">
+      Select a lesson to start learning
+    </h2>
+
+    <div class="video-box">
+      <video id="mainVideo" controls poster="<%= course.thumbnail %>">
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <!-- ================= RIGHT SIDEBAR ================= -->
+  <div class="sidebar">
+
+    <h2 class="sidebar-title">Course Content</h2>
+
+    <!-- ✅ START LIVE CLASS ONLY -->
+    
+
+    <!-- PROGRESS -->
+    <div class="progress-bar-box">
+      <span><%= lessons.length %> Lessons</span>
+
+      <div class="progress">
+        <div class="progress-fill" style="width: 0%;"></div>
+      </div>
+
+      <small>0% completed</small>
+    </div>
+
+    <!-- CHAPTER -->
+    <div class="chapter">
+
+      <div class="chapter-header" onclick="toggleChapter()">
+        <span>01</span>
+        <p>Lessons</p>
+        <span class="arrow" id="arrow">▼</span>
+      </div>
+
+      <div class="chapter-content" id="chapter">
+
+        <% if (lessons.length > 0) { %>
+          <% lessons.forEach((lesson, index) => { %>
+            <div
+              class="lesson"
+              onclick="playVideo('<%= lesson.videoUrl %>', '<%= lesson.title %>')"
+            >
+              <p><%= index + 1 %>. <%= lesson.title %></p>
+              <small>Video Lesson</small>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p style="padding: 12px; color: #888;">
+            No lessons available for this course.
+          </p>
+        <% } %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<%- include('includes/footer') %>
+
+<!-- JS -->
+<script src="/js/insidecourse.js"></script>
+
+</body>
+</html>

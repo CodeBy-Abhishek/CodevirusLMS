@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher Dashboard</title>
+</head>
+
+<body style="
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #f4f6f8;
+  font-family: Arial, sans-serif;
+">
+
+<div style="
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+">
+
+  <!-- HEADER -->
+  <h1 style="margin-bottom: 10px; color: #111827;">
+    Welcome, <%= teacher.user.username %>
+  </h1>
+
+  <p style="margin: 5px 0;">
+    <strong>Bio:</strong> <%= teacher.bio %>
+  </p>
+
+  <p style="margin: 5px 0;">
+    <strong>Expertise:</strong> <%= teacher.expertise.join(", ") %>
+  </p>
+
+  <hr style="
+    margin: 25px 0;
+    border: none;
+    height: 1px;
+    background: #e5e7eb;
+  ">
+
+  <!-- COURSES -->
+  <h2 style="margin-bottom: 15px;">My Courses</h2>
+
+  <% if (courses.length === 0) { %>
+    <p style="color: #6b7280;">No courses yet</p>
+  <% } %>
+
+  <ul style="list-style: none; padding: 0;">
+
+    <% courses.forEach(course => { %>
+      <li style="
+        background: #f9fafb;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+
+        <!-- COURSE TITLE -->
+        <div>
+          <strong><%= course.title %></strong>
+        </div>
+
+        <!-- ACTIONS -->
+        <div>
+
+          <!-- ADD LESSON -->
+          <a 
+            href="/teacher/course/<%= course._id %>/lesson/new"
+            style="
+              text-decoration: none;
+              color: #2563eb;
+              font-weight: 600;
+              margin-right: 12px;
+            "
+          >
+            ➕ Add Lesson
+          </a>
+
+          <!-- START LIVE (ALWAYS SHOW FOR TEACHER) -->
+          <% if (teacher) { %>
+            <form
+              action="/course/<%= course._id %>/start-live"
+              method="POST"
+              style="display: inline;"
+            >
+              <button style="
+                padding: 8px 14px;
+                background: #dc2626;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                font-weight: 600;
+                cursor: pointer;
+              ">
+                🔴 Start Live
+              </button>
+            </form>
+          <% } %>
+
+        </div>
+
+      </li>
+    <% }) %>
+
+  </ul>
+
+  <!-- CREATE COURSE -->
+  <a 
+    href="/teacher/course/new"
+    style="
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 18px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+    "
+  >
+    ➕ Create New Course
+  </a>
+
+</div>
+
+</body>
+</html>

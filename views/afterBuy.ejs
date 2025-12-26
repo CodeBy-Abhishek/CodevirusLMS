@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberSecurity Dashboard | CodeVirus</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/afterbuy.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<%- include('includes/header.ejs') %>
+
+<div class="page-wrapper">
+<div class="dashboard">
+  <aside class="sidebar">
+    <h2 class="logo">Welcome to CodeVirus</h2>
+
+    <ul class="menu">
+      <li class="active"><a href="/dashboard">Dashboard</a></li>
+      <li><a href="#">Threat Labs</a></li>
+      <li><a href="/home/course">Courses</a></li>
+      <li><a href="#">Claim your Certificate</a></li>
+    </ul>
+  </aside>
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <h3>Welcome Analyst 👋</h3>
+      <input type="text" placeholder="Search threats, labs...">
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Hi, <%= user.username %></h1>
+      <p>Welcome to CodeVirus</p>
+    </section>
+    <section class="continue-learning">
+      <h2>Continue Learning</h2>
+
+      <% if (!user.boughtCourses || user.boughtCourses.length === 0) { %>
+
+        <p class="no-course">
+          You haven't purchased any course yet.
+        </p>
+
+      <% } else { %>
+
+        <div class="learning-grid">
+
+          <% user.boughtCourses.forEach(course => { %>
+
+            <div class="learning-card">
+
+              <img src="<%= course.thumbnail %>" class="thumb" alt="course">
+
+              <div class="details">
+                <p class="category">Cyber Security</p>
+                <h3><%= course.title %></h3>
+                <p class="lessons">Self-paced Course</p>
+
+              
+                <div class="card-actions">
+                  <a href="/insidecourse/<%= course._id %>" class="btn">
+                    Continue
+                  </a>
+
+                  <a href="/course/<%= course._id %>/live" class="btn live">
+                    ▶ Join Live Class
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          <% }) %>
+
+        </div>
+
+      <% } %>
+    </section>
+    <section>
+      <h2 class="section-title">Running Security Courses</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <span class="tag blue">Ethical Hacking</span>
+          <h3>Web Penetration Testing</h3>
+          <p>OWASP, Burp Suite, SQLi, XSS</p>
+          <div class="progress">
+            <div style="width:70%"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag orange">Blue Team</span>
+          <h3>SOC Analyst Training</h3>
+          <p>SIEM, Incident Response</p>
+          <div class="progress">
+            <div style="width:55%"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag red">Networking</span>
+          <h3>Network Security</h3>
+          <p>Firewalls, IDS/IPS</p>
+          <div class="progress">
+            <div style="width:80%"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag green">Forensics</span>
+          <h3>Digital Forensics</h3>
+          <p>Memory & Disk Analysis</p>
+          <div class="progress">
+            <div style="width:45%"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="box">
+        <h3>Upcoming Labs</h3>
+        <ul>
+          <li>🧪 Malware Analysis – 10:00 AM</li>
+          <li>🧪 SIEM Investigation – 1:00 PM</li>
+          <li>🧪 Red Team Simulation – 4:00 PM</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Recent Alerts</h3>
+        <ul class="alerts">
+          <li>🚨 Brute force attempt detected</li>
+          <li>⚠ Suspicious login blocked</li>
+          <li>✅ Firewall rules updated</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+</div>
+
+<!-- FOOTER -->
+<%- include('includes/footer.ejs') %>
+
+</body>
+</html>
