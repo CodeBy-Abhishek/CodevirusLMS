@@ -1,11 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>cybersecurity</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Light Blue Gradient Background */
+        .light-blue-gradient {
+            background: linear-gradient(180deg,
+                    #f0f9ff 0%,
+                    #e8f4fc 25%,
+                    #f5faff 50%,
+                    #e8f4fc 75%,
+                    #f0f9ff 100%);
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    #f8fbff 30%,
+                    #e8f5f0 60%,
+                    #e0f2f1 100%);
+        }
+
+        /* Button Gradient */
+        .btn-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #059669 0%, #2563eb 100%);
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+
+        .faq-item .faq-icon-plus {
+            display: block;
+        }
+
+        .faq-item .faq-icon-minus {
+            display: none;
+        }
+
+        .faq-item.active .faq-icon-plus {
+            display: none;
+        }
+
+        .faq-item.active .faq-icon-minus {
+            display: block;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-<body>
-    
+
+<body class="font-inter antialiased">
+    <%- include('includes/header.ejs') %>
+        <!-- ============================================ -->
+        <!-- SECTION 1: Hero Section (Image Only) -->
+        <!-- ============================================ -->
+        <section class="relative w-screen h-screen overflow-hidden">
+            <img src="/img/earth.jpeg" alt="Hero Background"
+                class="absolute inset-0 w-full h-full object-cover object-center" />
+
+            <!-- overlay -->
+            <div class="absolute inset-0 bg-black/60"></div>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- SECTION 2: Cybersecurity Solutions -->
+        <!-- ============================================ -->
+        <section class="w-full bg-[#0f1623] py-16 md:py-24 lg:py-28">
+            <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+
+                <!-- Section Header -->
+                <div class="max-w-2xl mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-100 leading-tight mb-5">
+                        Get In Touch With Us
+                    </h2>
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        Have questions about our cybersecurity courses, internships, or career guidance?
+                        Our team is here to help you choose the right learning path.
+                    </p>
+                </div>
+
+                <!-- Solutions Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <!-- Card 1 - SOC Managers -->
+                    <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                            </svg>
+
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">OUR LOCATION</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Lucknow, Uttar Pradesh, India </p>
+                    </div>
+
+                    <!-- Card 2 - Cloud SecOps -->
+                    <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Opening Hours
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Monday – Saturday<br>
+                            10:00 AM – 6:00 PM
+                        </p>
+                    </div>
+
+                    <!-- Card 3 - Infra Leads -->
+                    <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                            </svg>
+
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Chat to Support
+                        </h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            <a href="mailto:Contact@codevirussec.academy" class="text-gray-900 hover:text-blue-500 hover:underline transition">
+                                Contact@codevirussec.academy
+                            </a>
+                            <br>
+                            <a href="mailto:enquiry@codevirussec.academy" class="text-gray-900 hover:text-blue-500 hover:underline transition">
+                                enquiry@codevirussec.academy
+                            </a>
+                        </p>
+                    </div>
+
+                    <!-- card 4 - -->
+                    <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 border border-gray-100 float-card">
+                        <!-- Icon -->
+                        <div class="w-12 h-12 mb-5 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
+                            </svg>
+
+                        </div>
+
+                        <!-- Content -->
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Contact Us</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+
+                            <a href="https://wa.me/919696029771" target="_blank" class="text-green-600 hover:underline">
+                                +91 96960 29771
+                            </a>
+
+                            <br>
+                            <a href="tel:+919555441241" class="text-blue-600 hover:underline">
+                                +91 95554 41241
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ============================================ -->
+<!-- SECTION: Map + Contact Form -->
+<!-- ============================================ -->
+<section
+  class="relative w-full py-20 bg-cover bg-center"
+  style="background-image: url('/img/final.jpg');">
+  <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+      <!-- LEFT: Map -->
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-3">Our Location</h3>
+        <p class="text-gray-400 mb-6">
+          Find us at our headquarters in Lucknow, Uttar Pradesh, India
+        </p>
+
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+          <iframe
+            src="https://www.google.com/maps?q=Malerkotla,Punjab,India&output=embed"
+            class="w-full h-[380px]"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-3">Get in Touch</h3>
+        <p class="text-gray-400 mb-6">
+          Reach out to us for inquiries about cybersecurity courses, internships,
+          or career guidance.
+        </p>
+
+        <form class="bg-white rounded-2xl p-8 shadow-xl">
+
+          <!-- Name -->
+          <div class="mb-5">
+            <input
+              type="text"
+              placeholder="Full Name"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                     focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <!-- Email -->
+          <div class="mb-5">
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                     focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-5">
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                     focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <!-- Message -->
+          <div class="mb-6">
+            <textarea
+              rows="4"
+              placeholder="How can we help you?"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                     focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+
+          <!-- Button -->
+          <button
+            type="submit"
+            class="w-full py-3 rounded-lg font-semibold text-white
+                   bg-gradient-to-r from-orange-500 to-orange-600
+                   hover:from-orange-600 hover:to-orange-700 transition">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <%- include('includes/footer.ejs') %>
 </body>
+
 </html>

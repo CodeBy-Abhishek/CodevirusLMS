@@ -92,3 +92,10 @@
 .site-footer a:hover {
   color: #0ea5e9; /* cyan-blue hover */
 }
+.policy-page::-webkit-scrollbar {
+  width: 6px;
+}
+.policy-page::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+  border-radius: 4px;
+}
