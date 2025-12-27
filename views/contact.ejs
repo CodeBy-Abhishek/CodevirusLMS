@@ -102,13 +102,29 @@
         <!-- ============================================ -->
         <!-- SECTION 1: Hero Section (Image Only) -->
         <!-- ============================================ -->
-        <section class="relative w-screen h-screen overflow-hidden">
-            <img src="/img/earth.jpeg" alt="Hero Background"
-                class="absolute inset-0 w-full h-full object-cover object-center" />
+       <section class="relative w-screen h-screen overflow-hidden">
+  <!-- Background image -->
+  <img src="/img/earth.jpeg" alt="Hero Background"
+       class="absolute inset-0 w-full h-full object-cover object-center" />
 
-            <!-- overlay -->
-            <div class="absolute inset-0 bg-black/60"></div>
-        </section>
+  <!-- dark overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- HERO TEXT -->
+  <div class="relative z-10 h-full flex items-center">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
+        Connect with Codevirus Worldwide
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-300 max-w-xl">
+        Connect with the Codevirus team from anywhere in the world.
+Whether you have questions, feedback, or partnership ideas—we’re ready to help.
+      </p>
+    </div>
+  </div>
+</section>
+
 
 
         <!-- ============================================ -->
@@ -191,11 +207,13 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Chat to Support
                         </h3>
                         <p class="text-sm text-gray-600 leading-relaxed">
-                            <a href="mailto:Contact@codevirussec.academy" class="text-gray-900 hover:text-blue-500 hover:underline transition">
+                            <a href="mailto:Contact@codevirussec.academy"
+                                class="text-gray-900 hover:text-blue-500 hover:underline transition">
                                 Contact@codevirussec.academy
                             </a>
                             <br>
-                            <a href="mailto:enquiry@codevirussec.academy" class="text-gray-900 hover:text-blue-500 hover:underline transition">
+                            <a href="mailto:enquiry@codevirussec.academy"
+                                class="text-gray-900 hover:text-blue-500 hover:underline transition">
                                 enquiry@codevirussec.academy
                             </a>
                         </p>
@@ -217,7 +235,9 @@
                         <!-- Content -->
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Contact Us</h3>
                         <p class="text-sm text-gray-600 leading-relaxed">
-
+                            <a href="tel:+919918103909" class="text-blue-600 hover:underline">
+                                +91 99181 03909
+                            </a><br>
                             <a href="https://wa.me/919696029771" target="_blank" class="text-green-600 hover:underline">
                                 +91 96960 29771
                             </a>
@@ -233,97 +253,79 @@
             </div>
         </section>
         <!-- ============================================ -->
-<!-- SECTION: Map + Contact Form -->
-<!-- ============================================ -->
-<section
-  class="relative w-full py-20 bg-cover bg-center"
-  style="background-image: url('/img/final.jpg');">
-  <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
+        <!-- SECTION: Map + Contact Form -->
+        <!-- ============================================ -->
+        <section id="contact-section"
+         class="relative w-full py-20 bg-cover bg-center"
+         style="background-image: url('/img/final.jpg');">
+            <div class="max-w-[1200px] mx-auto px-6 sm:px-8 md:px-12">
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-      <!-- LEFT: Map -->
-      <div>
-        <h3 class="text-2xl font-bold text-white mb-3">Our Location</h3>
-        <p class="text-gray-400 mb-6">
-          Find us at our headquarters in Lucknow, Uttar Pradesh, India
-        </p>
+                    <!-- LEFT: Map -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Our Location</h3>
+                        <p class="text-gray-400 mb-6">
+                            Find us at our headquarters in Lucknow, Uttar Pradesh, India
+                        </p>
 
-        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-          <iframe
-            src="https://www.google.com/maps?q=Malerkotla,Punjab,India&output=embed"
-            class="w-full h-[380px]"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
+                        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                            <iframe src="https://www.google.com/maps?q=Lucknow,Uttar Pradesh,India&output=embed"
+                                class="w-full h-[380px]" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
 
-      <!-- RIGHT: Contact Form -->
-      <div>
-        <h3 class="text-2xl font-bold text-white mb-3">Get in Touch</h3>
-        <p class="text-gray-400 mb-6">
-          Reach out to us for inquiries about cybersecurity courses, internships,
-          or career guidance.
-        </p>
+                    <!-- RIGHT: Contact Form -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Work With Us</h3>
+                        <p class="text-gray-400 mb-6">
+                            Reach out to us for inquiries about cybersecurity courses, internships,
+                            or career guidance.
+                        </p>
 
-        <form class="bg-white rounded-2xl p-8 shadow-xl">
+                        <form class="bg-white rounded-2xl p-8 shadow-xl">
 
-          <!-- Name -->
-          <div class="mb-5">
-            <input
-              type="text"
-              placeholder="Full Name"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                            <!-- Name -->
+                            <div class="mb-5">
+                                <input type="text" placeholder="Full Name" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
                      focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
+                            </div>
 
-          <!-- Email -->
-          <div class="mb-5">
-            <input
-              type="email"
-              placeholder="Email Address"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                            <!-- Email -->
+                            <div class="mb-5">
+                                <input type="email" placeholder="Email Address" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
                      focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
+                            </div>
 
-          <!-- Phone -->
-          <div class="mb-5">
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                            <!-- Phone -->
+                            <div class="mb-5">
+                                <input type="tel" placeholder="Phone Number" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
                      focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
+                            </div>
 
-          <!-- Message -->
-          <div class="mb-6">
-            <textarea
-              rows="4"
-              placeholder="How can we help you?"
-              class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
+                            <!-- Message -->
+                            <div class="mb-6">
+                                <textarea rows="4" placeholder="How can we help you?" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm
                      focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          </div>
+                            </div>
 
-          <!-- Button -->
-          <button
-            type="submit"
-            class="w-full py-3 rounded-lg font-semibold text-white
-                   bg-gradient-to-r from-orange-500 to-orange-600
-                   hover:from-orange-600 hover:to-orange-700 transition">
-            Send Message
-          </button>
+                            <!-- Button -->
+                            <button type="submit" class="w-full inline-flex items-center justify-center 
+                            btn-gradient text-white font-semibold
+                             text-base px-6 py-3 rounded-full mb-8">
+                                Send Message
+                            </button>
 
-        </form>
-      </div>
+                        </form>
+                    </div>
 
-    </div>
-  </div>
-</section>
+                </div>
+            </div>
+        </section>
 
-    <%- include('includes/footer.ejs') %>
+        <%- include('includes/footer.ejs') %>
 </body>
 
 </html>
