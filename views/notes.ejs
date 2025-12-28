@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Notes Download</title>
-    <link rel="stylesheet" href="/css/note.css">
+  <meta charset="UTF-8">
+  <title>Notes Download</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Notes CSS -->
+  <link rel="stylesheet" href="/css/note.css">
 </head>
+
 <body>
     <%- include('includes/header.ejs') %>
 <div class="notes-container">
@@ -395,5 +418,6 @@
 </div>
 
 <script src="/js/notes.js"></script>
+<%- include('includes/footer.ejs') %>
 </body>
 </html>
