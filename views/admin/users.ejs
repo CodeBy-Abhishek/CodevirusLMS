@@ -30,6 +30,7 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   ">
 
+    <!-- TABLE HEADER -->
     <tr style="
       background: #2563eb;
       color: white;
@@ -37,16 +38,33 @@
       <th style="padding: 14px; text-align: left;">Username</th>
       <th style="padding: 14px; text-align: left;">Email</th>
       <th style="padding: 14px; text-align: left;">Role</th>
+      <th style="padding: 14px; text-align: left;">Status</th>
     </tr>
 
+    <!-- TABLE BODY -->
     <% users.forEach(user => { %>
-      <tr style="
-        border-bottom: 1px solid #e5e7eb;
-      ">
+      <tr style="border-bottom: 1px solid #e5e7eb;">
         <td style="padding: 12px;"><%= user.username %></td>
         <td style="padding: 12px;"><%= user.email %></td>
         <td style="padding: 12px; text-transform: capitalize;">
           <%= user.role %>
+        </td>
+        <td style="padding: 12px;">
+          <% if (user.isVerified) { %>
+            <span style="
+              color: green;
+              font-weight: bold;
+            ">
+              Verified
+            </span>
+          <% } else { %>
+            <span style="
+              color: red;
+              font-weight: bold;
+            ">
+              Not Verified
+            </span>
+          <% } %>
         </td>
       </tr>
     <% }) %>

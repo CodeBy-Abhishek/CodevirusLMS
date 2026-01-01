@@ -1,322 +1,79 @@
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* dashboard.css */
 
-body {
-  font-family: "Inter", system-ui, sans-serif;
-  background: #f1f5f9;
-  color: #0f172a;
-}
-
-/* ================= LAYOUT ================= */
-.page-wrapper {
-  max-width: 1400px;
-  margin: auto;
-  padding: 32px 20px 80px;
-}
-
-.dashboard {
-  display: flex;
-  gap: 24px;
-}
-
-/* ================= SIDEBAR ================= */
+/* Custom Tailwind-like styles for additional effects */
 .sidebar {
-  width: 240px;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 22px;
-  border: 1px solid #e5e7eb;
-}
-
-.sidebar .logo {
-  font-size: 15px;
-  font-weight: 700;
-  color: #2563eb;
-  margin-bottom: 26px;
-}
-
-.menu {
-  list-style: none;
-}
-
-.menu li {
-  margin-bottom: 6px;
-}
-
-.menu a {
-  display: block;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-size: 14px;
-  text-decoration: none;
-  color: #475569;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.menu li.active a,
-.menu a:hover {
-  background: #e0ecff;
-  color: #2563eb;
-  font-weight: 500;
-}
-
-/* ================= MAIN ================= */
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* ================= TOP BAR ================= */
-.topbar {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid #e5e7eb;
-}
-
-.topbar h3 {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.topbar input {
-  width: 260px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  font-size: 13px;
-  outline: none;
-}
-
-.topbar input:focus {
-  border-color: #2563eb;
-}
-
-/* ================= HERO ================= */
-.hero {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 26px;
-  border: 1px solid #e5e7eb;
-}
-
-.hero h1 {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.hero p {
-  font-size: 14px;
-  color: #64748b;
-}
-
-/* ================= CONTINUE LEARNING ================= */
-.continue-learning h2 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.no-course {
-  padding: 16px;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  border-radius: 10px;
-  font-size: 14px;
-  color: #64748b;
-}
-
-/* GRID */
-.learning-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 18px;
-}
-
-/* CARD */
-.learning-card {
-  background: #ffffff;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  overflow: hidden;
-  transition: box-shadow 0.15s ease;
-}
-
-.learning-card:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
-
-.thumb {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-.details {
-  padding: 14px;
-}
-
-.category {
-  font-size: 12px;
-  color: #2563eb;
-  margin-bottom: 4px;
-}
-
-.details h3 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.lessons {
-  font-size: 13px;
-  color: #64748b;
-}
-
-/* ACTIONS */
-.card-actions {
-  margin-top: 12px;
-  display: flex;
-  gap: 8px;
-}
-
-.card-actions .btn {
-  flex: 1;
-  padding: 8px;
-  border-radius: 999px;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
-  color: #ffffff;
-  background: #2563eb;
-}
-
-.card-actions .live {
-  background: #0f172a;
-}
-
-/* ================= RUNNING COURSES ================= */
-.section-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+    backdrop-filter: blur(10px);
+    background: rgba(31, 41, 55, 0.9);
+    border-right: 1px solid rgba(75, 85, 99, 0.3);
 }
 
 .card {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
+    backdrop-filter: blur(10px);
+    background: rgba(31, 41, 55, 0.8);
+    transition: all 0.3s ease;
 }
 
-.tag {
-  display: inline-block;
-  font-size: 11px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  margin-bottom: 6px;
-  color: #ffffff;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.tag.blue { background: #2563eb; }
-.tag.orange { background: #f97316; }
-.tag.red { background: #dc2626; }
-.tag.green { background: #16a34a; }
-
-.card h3 {
-  font-size: 14px;
-  margin-bottom: 4px;
+.learning-card {
+    backdrop-filter: blur(10px);
+    background: rgba(31, 41, 55, 0.8);
+    transition: all 0.3s ease;
 }
 
-.card p {
-  font-size: 13px;
-  color: #64748b;
+.learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(20, 184, 166, 0.2); /* Soft glow accent */
 }
 
-/* PROGRESS */
-.progress {
-  background: #e5e7eb;
-  height: 5px;
-  border-radius: 999px;
-  margin-top: 8px;
+.image-container {
+    position: relative;
 }
 
-.progress div {
-  height: 100%;
-  border-radius: 999px;
-  background: #2563eb;
+.overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
-/* ================= GRID SECTION ================= */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+/* Glow effects for accents */
+.text-teal-400 {
+    text-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
 }
 
-.box {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 18px;
-  border: 1px solid #e5e7eb;
+.text-purple-400 {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
-.box h3 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.text-blue-400 {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
-.box ul {
-  list-style: none;
+.text-green-400 {
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
 }
 
-.box li {
-  font-size: 13px;
-  color: #475569;
-  margin-bottom: 6px;
-}
-
-.alerts li {
-  color: #dc2626;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .dashboard {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .topbar {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-  }
-
-  .topbar input {
-    width: 100%;
-  }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+    .main {
+        margin-left: 0;
+    }
+    .overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+    .upcoming {
+        grid-template-columns: 1fr;
+    }
+    .learning-card .thumb {
+        height: 200px; /* Adjust for mobile */
+    }
 }

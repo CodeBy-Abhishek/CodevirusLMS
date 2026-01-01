@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate of Completion</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #eaeaea;
+      padding: 30px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .certificate {
+      width: 1100px;
+      height: 780px;
+      margin: auto;
+      background: #ffffff;
+      padding: 50px 70px;
+      position: relative;
+      box-sizing: border-box;
+      border: 2px solid #d6e4f0;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-left {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0b5ed7;
+    }
+
+    .logo-right {
+      display: flex;
+      gap: 15px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .title h1 {
+      font-size: 56px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      color: #0b5ed7;
+    }
+
+    .title h2 {
+      font-size: 22px;
+      letter-spacing: 4px;
+      color: #0b5ed7;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 40px;
+      color: #222;
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      margin: 18px 0;
+      border-bottom: 2px solid #000;
+      display: inline-block;
+      padding: 0 25px 8px;
+    }
+
+    .course {
+      font-weight: 700;
+    }
+
+    .cert-info {
+      margin-top: 25px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .signatures {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 70px;
+      padding: 0 120px;
+    }
+
+    .sign {
+      font-family: cursive;
+      font-size: 26px;
+    }
+
+    .line {
+      width: 200px;
+      height: 1px;
+      background: #000;
+      margin: 5px auto;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 25px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="certificate">
+
+    <!-- HEADER -->
+    <div class="top-bar">
+      <div class="logo-left">CodeVirus Security</div>
+      <div class="logo-right">
+        <div>ISO 9001:2015</div>
+        <div>MSME</div>
+      </div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title">
+      <h1>CERTIFICATE</h1>
+      <h2>OF COMPLETION</h2>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <p>This certificate is proudly presented to</p>
+
+      <!-- ✅ FIXED -->
+      <div class="name">
+  <%= course.CourseOwnerName ? course.CourseOwnerName.username : "Student Name" %>
+</div>
+
+      <p>
+        for successfully completing the course
+        <span class="course"><%= course.title %></span>
+      </p>
+
+      <p>
+        We appreciate your dedication and commitment to learning.
+      </p>
+
+      <div class="cert-info">
+        Certificate ID: CERT-<%= course._id %><br>
+        Issue Date: <%= new Date().toDateString() %>
+      </div>
+    </div>
+
+    <!-- SIGNATURES -->
+    <div class="signatures">
+      <div>
+        <div class="sign">Ankit Rai</div>
+        <div class="line"></div>
+        <div>Director</div>
+      </div>
+
+      <div>
+        <div class="sign">Prateek</div>
+        <div class="line"></div>
+        <div>Training Coordinator</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      Verify at: info@codevirussec.in
+    </div>
+
+  </div>
+
+</body>
+</html>

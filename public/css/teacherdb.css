@@ -1,0 +1,251 @@
+/* ===============================
+   ROOT THEME (Professional Dark)
+================================ */
+:root {
+  --bg-main: #0b1220;
+  --bg-card: #111a2e;
+  --bg-soft: #0e1625;
+
+  --primary: #22c3a6;
+  --secondary: #7c5cff;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --border-soft: rgba(255, 255, 255, 0.06);
+}
+
+/* ===============================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0b1220, #070d19);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 32px;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.header {
+  background: linear-gradient(135deg, #1aa3a3, #5b4bdb);
+  padding: 28px 32px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 0.95rem;
+  color: #eef2ff;
+  margin-bottom: 4px;
+}
+
+/* Remove glow effect */
+.glow-text {
+  text-shadow: none;
+}
+
+/* ===============================
+   DIVIDER
+================================ */
+.divider {
+  border: none;
+  height: 1px;
+  background: var(--border-soft);
+  margin: 32px 0;
+}
+
+/* ===============================
+   SECTION TITLE
+================================ */
+.skills-section h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+.no-skills {
+  background: var(--bg-soft);
+  padding: 18px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ===============================
+   COURSES GRID
+================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  list-style: none;
+  margin-top: 20px;
+}
+
+/* ===============================
+   COURSE CARD
+================================ */
+.skill-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid var(--border-soft);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 195, 166, 0.35);
+}
+
+/* ===============================
+   COURSE TITLE
+================================ */
+.skill-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+.skill-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Add Lesson */
+.add-lesson-link {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--primary);
+  border: 1px solid rgba(34, 195, 166, 0.4);
+  transition: background 0.2s ease;
+}
+
+.add-lesson-link:hover {
+  background: rgba(34, 195, 166, 0.12);
+}
+
+/* Start Live */
+.start-live-btn {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--secondary);
+  color: #ffffff;
+  transition: opacity 0.2s ease;
+}
+
+.start-live-btn:hover {
+  opacity: 0.85;
+}
+
+/* ===============================
+   PREDEFINED SKILLS
+================================ */
+.predefined-skills {
+  margin-top: 40px;
+}
+
+.predefined-skills h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.predefined-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.predefined-skill {
+  background: var(--bg-soft);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border-soft);
+}
+
+/* ===============================
+   CREATE COURSE BUTTON
+================================ */
+.create-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.create-skill-link {
+  display: inline-block;
+  padding: 12px 22px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #041413;
+  text-decoration: none;
+}
+
+.create-skill-link:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   ACCESSIBILITY
+================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+
+  .skill-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

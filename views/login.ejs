@@ -3,58 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CodeVirus | Cybersecurity Academy</title>
+  <title>CodeVirus | Login</title>
+
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS (optional) -->
   <link rel="stylesheet" href="/css/login.css">
+  <style>
+     .google-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #4285F4;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+  </style>
+
 </head>
-<body>
 
-  <!-- HEADER -->
-  <%- include('includes/header') %>
+<body class="bg-gray-100 min-h-screen">
 
-  <!-- PAGE CENTER (ONLY THIS IS CENTERED) -->
-  <div class="page-center">
-    <div class="container">
-      <h1 class="logo">Codevirus</h1>
-      <p class="subtitle">Cybersecurity security</p>
+  <%- include("includes/header") %>
 
-      <div class="card">
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
 
-        <!-- Tabs -->
-        <div class="tabs">
-          <button type="button" class="tab active" id="signinTab">Sign In</button>
-          <button type="button" class="tab" id="signupTab">Sign Up</button>
+      <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">
+        Codevirus Security
+      </h1>
+
+      <!-- Tabs -->
+      <div class="flex justify-center mb-6">
+        <button id="signinTab"
+          class="tab px-4 py-2 border-b-2 border-blue-500 font-medium text-blue-600">
+          Sign In
+        </button>
+        <button id="signupTab"
+          class="tab px-4 py-2 border-b-2 border-transparent font-medium text-gray-400">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- FORM -->
+      <form id="authForm" method="POST" action="/login" class="space-y-4">
+        <a href="/auth/google" class="google-btn">
+         Login with Google
+        </a>
+
+
+        <!-- USERNAME (ONLY FOR SIGNUP) -->
+        <div id="nameField" class="hidden">
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Username
+          </label>
+          <input type="text" name="username"
+            class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 text-black-500">
         </div>
 
-        <div class="divider">OR CONTINUE WITH</div>
+        <!-- EMAIL -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            Email
+          </label>
+          <input type="email" name="email" required
+            class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 text-black-500">
+        </div>
 
-        <form id="authForm" method="POST" action="/login">
+        <!-- PASSWORD -->
+        <div>
+          <label class="block text-sm font-medium text-black-700 mb-1">
+            Password
+          </label>
+          <input type="password" name="password" required
+            class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 text-black-500">
+        </div>
 
-          <div class="field" id="nameField">
-            <label>Username</label>
-            <input type="text" name="username" placeholder="Your username">
-          </div>
+        <!-- CAPTCHA -->
+        <div class="g-recaptcha"
+          data-sitekey="<%= process.env.RECAPTCHA_Site %>">
+        </div>
 
-          <div class="field">
-            <label>Email</label>
-            <input type="email" name="email" required>
-          </div>
+        <!-- SUBMIT -->
+        <button id="submitBtn"
+          class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
+          Sign In
+        </button>
+      </form>
 
-          <div class="field">
-            <label>Password</label>
-            <input type="password" name="password" required>
-          </div>
-
-          <button type="submit" class="primary-btn" id="submitBtn">
-            Sign In
-          </button>
-
-        </form>
-      </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <%- include('includes/footer') %>
+  <%- include("includes/footer") %>
 
   <script src="/js/login.js"></script>
 </body>

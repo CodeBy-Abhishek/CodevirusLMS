@@ -1,28 +1,25 @@
 const signinTab = document.getElementById("signinTab");
 const signupTab = document.getElementById("signupTab");
-const nameField = document.getElementById("nameField");
+const authForm = document.getElementById("authForm");
 const submitBtn = document.getElementById("submitBtn");
-const form = document.getElementById("authForm");
+const nameField = document.getElementById("nameField");
 
-// default
-nameField.style.display = "none";
-form.action = "/login";
+signinTab.addEventListener("click", () => {
+  authForm.action = "/login";
+  submitBtn.innerText = "Sign In";
+  nameField.classList.add("hidden");
 
-signinTab.onclick = () => switchMode("signin");
-signupTab.onclick = () => switchMode("signup");
+  signinTab.classList.add("border-blue-500", "text-blue-600");
+  signupTab.classList.remove("border-blue-500", "text-blue-600");
+  signupTab.classList.add("text-gray-400");
+});
 
-function switchMode(type) {
+signupTab.addEventListener("click", () => {
+  authForm.action = "/register";
+  submitBtn.innerText = "Sign Up";
+  nameField.classList.remove("hidden");
 
-  signinTab.classList.toggle("active", type === "signin");
-  signupTab.classList.toggle("active", type === "signup");
-
-  if (type === "signin") {
-    nameField.style.display = "none";
-    submitBtn.textContent = "Sign In";
-    form.action = "/login";      
-  } else {
-    nameField.style.display = "block";
-    submitBtn.textContent = "Sign Up";
-    form.action = "/register";   
-  }
-}
+  signupTab.classList.add("border-blue-500", "text-blue-600");
+  signinTab.classList.remove("border-blue-500", "text-blue-600");
+  signinTab.classList.add("text-gray-400");
+});

@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="/css/viewcourse.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        .btnc button{
+            padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #020617;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+        }
+    </style>
 </head>
 <body>
 
@@ -87,6 +100,7 @@
                 <li>✔ Web & Network Security</li>
                 <li>✔ Kali Linux & Tools</li>
                 <li>✔ Real-world Attacks</li>
+                <li><a href="/contact" class="btnc"><button>contact Us  </button></a></li>
             </ul>
         </div>
 
@@ -148,6 +162,7 @@
 
         <% for (let review of course.reviews) { %>
             <div class="review-card">
+                <p><%= review.author.username %></p>
                 <p><%= review.comment %></p>
                 <small>Rating: <%= review.rating %> ⭐</small>
             </div>

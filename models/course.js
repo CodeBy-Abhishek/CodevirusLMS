@@ -35,6 +35,10 @@ const courseSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Teacher"
     },
+    CourseOwnerName: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
 
     reviews: [
       {

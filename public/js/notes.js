@@ -1,8 +1,12 @@
-function downloadFile(filePath) {
-    const link = document.createElement("a");
-    link.href = filePath;
-    link.download = "";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+function downloadFile(path) {
+  const a = document.createElement("a");
+  a.href = path;
+  a.download = path.split("/").pop();
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function downloadFile(path) {
+  window.open(path, "_blank");
 }

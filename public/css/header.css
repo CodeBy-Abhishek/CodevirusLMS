@@ -5,189 +5,247 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* ================= NAVBAR (GLASS) ================= */
+/* ================= NAVBAR (GRID LAYOUT) ================= */
 .cyber-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+  align-items: center;
+  justify-items: start;
+  padding: 1px 10px;
+  background: Dark; 
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3); /
+}
 
+/* ================= LOGO (FORCED LEFT) ================= */
+.logo {
+  grid-column: 1;         
+  justify-self: start;     
+  margin-left: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: 16px 64px;
-
-  background: rgba(15, 23, 42, 0.65); /* dark glass */
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px; 
+  border-radius: 8px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* ================= LOGO ================= */
-.cyber-logo {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); 
 }
 
-.cv-blue {
-  background: linear-gradient(135deg, #38bdf8, #22c55e);
-
-  background-clip: text;              /* standard */
-  -webkit-background-clip: text;      /* chrome / safari */
-
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+.logo img {
+  height: auto; 
+  width: auto; 
+  max-width: 100%; 
+  max-height: 100px; 
+  display: block;
+  filter: drop-shadow(0 0 5px rgba(255, 0, 255, 0.3)); 
+  border-radius: 4px;
 }
-.cv-security {
-  color: #e5e7eb;
-  font-weight: 700;
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .logo img {
+    max-height: 100px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .logo img {
+    max-height: 80px; 
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .logo img {
+    max-height: 60px; 
+  }
+  
+  .logo {
+    padding: 0px;
+  }
+}
+
+/* ================= HAMBURGER (FORCED RIGHT) ================= */
+.menu-toggle {
+  grid-column: 3;         
+  justify-self: end;
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  display: none;
+  transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  color: #38bdf8; /* Hover effect for consistency */
 }
 
 /* ================= NAV LINKS ================= */
 .cyber-nav-links {
+  grid-column: 2;           /* CENTER SPACE */
+  justify-self: end;
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 26px;
-}
-
-.cyber-nav-links li {
-  position: relative;
+  gap: 22px;
+  white-space: nowrap;
 }
 
 .nav-link {
+  color: #e5e7eb;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
-  color: #e5e7eb;
-  padding: 8px 14px;
-  border-radius: 10px;
-  transition: all 0.25s ease;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  color: #38bdf8;
 }
 
 /* ================= REGISTER BUTTON ================= */
 .nav-btn {
-  padding: 8px 18px;
+  padding: 6px 14px;
   border-radius: 999px;
+  background: #38bdf8;
+  color: #0b1220;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  color: #0f172a;
-  background: linear-gradient(135deg, #38bdf8, #22c55e);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .nav-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+  background: #0ea5e9; /* Darker blue on hover */
+  transform: translateY(-2px); /* Lift effect */
 }
 
 /* ================= PROFILE ================= */
 .profile-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.profile-wrapper:hover {
+  opacity: 0.8; /* Subtle fade on hover */
 }
 
 .profile-circle {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #38bdf8, #22c55e);
-  color: #0f172a;
+  background: #38bdf8;
+  color: #0b1220;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: 700;
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-circle:hover {
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); /* Glow on hover */
 }
 
 .profile-name {
-  font-size: 14px;
-  font-weight: 500;
   color: #e5e7eb;
+  font-size: 13px;
 }
 
 /* ================= DROPDOWN ================= */
 .profile-dropdown {
   position: absolute;
-  top: 52px;
+  top: 48px;
   right: 0;
-
-  min-width: 210px;
-  padding: 10px 0;
-
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(16px);
-
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
-
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: all 0.25s ease;
+  min-width: 200px;
+  background: #0b1220;
+  border-radius: 10px;
+  padding: 8px 0;
+  display: none;
+  z-index: 1001;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.2); 
 }
 
 .profile-dropdown.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+  display: block;
 }
 
 .profile-dropdown a {
   display: block;
-  padding: 10px 18px;
-  font-size: 14px;
+  padding: 10px 16px;
   color: #e5e7eb;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .profile-dropdown a:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.profile-dropdown hr {
-  margin: 8px 0;
-  border: none;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(56, 189, 248, 0.1);
 }
 
 .logout-btn {
   color: #f87171;
-  font-weight: 600;
 }
 
-/* ================= RESPONSIVE ================= */
+.logout-btn:hover {
+  background: rgba(248, 113, 113, 0.1); 
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 900px) {
-  .cyber-navbar {
-    padding: 14px 22px;
-  }
 
+  .menu-toggle {
+    display: block;
+  }
   .cyber-nav-links {
-    gap: 14px;
+    grid-column: 1 / -1;  
+    justify-self: stretch;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    background: #0b1220;
+    margin-top: 8px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 12px;
+    transition: max-height 0.35s ease, padding 0.25s ease;
   }
 
-  .profile-name {
-    display: none;
+  .cyber-nav-links.open {
+    max-height: 600px;
+    padding: 12px;
+  }
+
+  .nav-link,
+  .nav-btn {
+    width: 100%;
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .profile-dropdown {
+    position: relative;
+    width: 100%;
+    top: 6px;
   }
 }

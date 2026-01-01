@@ -5,31 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeVirus Security</title>
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- Header CSS -->
     <link rel="stylesheet" href="/css/header.css">
+    
 </head>
 <body>
 
 <header class="cyber-navbar">
 
     <!-- LOGO -->
-    <div class="cyber-logo">
-        <span class="cv-blue">Codevirus</span>
-        <span class="cv-security">Security</span>
+    <a href="/home">
+        <div class="logo">
+        <img src="/img/logo.png" alt="CodeVirus Security Logo">
     </div>
 
+    </a>
+    <!-- HAMBURGER -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
     <!-- NAV LINKS -->
-    <ul class="cyber-nav-links">
+    <ul class="cyber-nav-links" id="navMenu">
 
         <li><a href="/home" class="nav-link">Home</a></li>
         <li><a href="/home/aboutus" class="nav-link">About Us</a></li>
         <li><a href="/home/course" class="nav-link">Courses</a></li>
         <li><a href="/notes" class="nav-link">Notes</a></li>
         <li><a href="/afterbuy" class="nav-link">Dashboard</a></li>
-         <li><a href="/contact" class="nav-link">Contact Us</a></li>
+        <li><a href="/contact" class="nav-link">Contact Us</a></li>
 
         <% if (!user) { %>
             <li>
@@ -47,7 +52,7 @@
                     <a href="/admin/dashboard">Admin Dashboard</a>
                     <a href="/teacher/dashboard">Teacher Dashboard</a>
                     <a href="/become-teacher">Apply for Job</a>
-                    <hr />
+                    <hr>
                     <a href="/logout" class="logout-btn">Logout</a>
                 </div>
             </li>
@@ -56,15 +61,18 @@
     </ul>
 </header>
 
-<!-- PROFILE DROPDOWN SCRIPT -->
+<!-- JS -->
 <script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("open");
+}
+
 function toggleProfile(event) {
     event.stopPropagation();
     const dropdown = document.getElementById("profileDropdown");
-    dropdown.classList.toggle("show");
+    if (dropdown) dropdown.classList.toggle("show");
 }
 
-// Close dropdown when clicking outside
 document.addEventListener("click", function () {
     const dropdown = document.getElementById("profileDropdown");
     if (dropdown) dropdown.classList.remove("show");

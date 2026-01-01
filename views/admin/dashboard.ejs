@@ -3,176 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(135deg, #020617, #020617, #020617);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 25px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      color: #020617;
+      padding: 35px 30px;
+      border-radius: 18px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .card h2 {
+      margin: 0 0 12px 0;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
 
-<body style="
-  margin:0;
-  min-height:100vh;
-  background:#eef2f7;
-  font-family: Arial, sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-">
+<body>
+  
+  <div class="container">
 
-  <div style="
-    width:100%;
-    max-width:900px;
-    padding:30px;
-  ">
+    <h1>Admin Dashboard</h1>
 
-    <h1 style="
-      text-align:center;
-      margin-bottom:40px;
-      color:#1f2937;
-    ">
-      Admin Dashboard
-    </h1>
+    <div class="grid">
 
-    <div style="
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:25px;
-    ">
-      <a href="/admin/users" style="
-        background:#ffffff;
-        padding:30px;
-        border-radius:14px;
-        text-decoration:none;
-        color:#111827;
-        box-shadow:0 8px 20px rgba(0,0,0,0.08);
-        transition:0.3s;
-      "
-      onmouseover="this.style.transform='translateY(-6px)'"
-      onmouseout="this.style.transform='translateY(0)'">
-
-        <h2 style="margin:0 0 10px 0;">👤 Users</h2>
-        <p style="margin:0;color:#6b7280;">
-          View and manage registered users
-        </p>
+      <a href="/admin/users" class="card">
+        <span class="icon">👤</span>
+        <h2>Users</h2>
+        <p>View and manage all registered users.</p>
       </a>
-      <a href="/admin/courses" style="
-        background:#ffffff;
-        padding:30px;
-        border-radius:14px;
-        text-decoration:none;
-        color:#111827;
-        box-shadow:0 8px 20px rgba(0,0,0,0.08);
-        transition:0.3s;
-      "
-      onmouseover="this.style.transform='translateY(-6px)'"
-      onmouseout="this.style.transform='translateY(0)'">
 
-        <h2 style="margin:0 0 10px 0;">📘 Courses</h2>
-        <p style="margin:0;color:#6b7280;">
-          Manage courses and content
-        </p>
+      <a href="/admin/courses" class="card">
+        <span class="icon">📘</span>
+        <h2>Courses</h2>
+        <p>Create, edit, and manage course content.</p>
       </a>
-      <a href="/admin/teachers" style="
-        background:#ffffff;
-        padding:30px;
-        border-radius:14px;
-        text-decoration:none;
-        color:#111827;
-        box-shadow:0 8px 20px rgba(0,0,0,0.08);
-        transition:0.3s;
-      "
-      onmouseover="this.style.transform='translateY(-6px)'"
-      onmouseout="this.style.transform='translateY(0)'">
-        <h2 style="margin:0 0 10px 0;">✔ Teachers</h2>
-        <p style="margin:0;color:#6b7280;">
-          Approve and manage teachers
-        </p>
+
+      <a href="/admin/teachers" class="card">
+        <span class="icon">✔</span>
+        <h2>Teachers</h2>
+        <p>Approve and manage instructor accounts.</p>
       </a>
+
     </div>
+
   </div>
+
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Dashboard</title>
-</head>
-
-<body style="
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-">
-
-  <div style="
-    background: #ffffff;
-    padding: 35px 40px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: center;
-  ">
-
-    <h1 style="
-      margin-bottom: 30px;
-      color: #111827;
-    ">
-      Admin Dashboard
-    </h1>
-
-    <ul style="
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    ">
-      <li style="margin-bottom: 15px;">
-        <a href="/admin/users" style="
-          display: block;
-          padding: 14px;
-          background: #2563eb;
-          color: #ffffff;
-          text-decoration: none;
-          border-radius: 8px;
-          font-weight: 600;
-        ">
-          View Users
-        </a>
-      </li>
-
-      <li style="margin-bottom: 15px;">
-        <a href="/admin/courses" style="
-          display: block;
-          padding: 14px;
-          background: #2563eb;
-          color: #ffffff;
-          text-decoration: none;
-          border-radius: 8px;
-          font-weight: 600;
-        ">
-          View Courses
-        </a>
-      </li>
-
-      <li>
-        <a href="/admin/teachers" style="
-          display: block;
-          padding: 14px;
-          background: #2563eb;
-          color: #ffffff;
-          text-decoration: none;
-          border-radius: 8px;
-          font-weight: 600;
-        ">
-          Approve Teachers
-        </a>
-      </li>
-    </ul>
-
-  </div>
-
-</body>
-</html> -->

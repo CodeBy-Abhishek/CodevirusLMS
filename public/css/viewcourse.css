@@ -7,8 +7,8 @@
 
 body {
   font-family: "Inter", "Poppins", system-ui, sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
+  background: radial-gradient(circle at top, #0f172a, #020617 70%);
+  color: #e5e7eb;
 }
 
 /* ================= PAGE WRAPPER ================= */
@@ -23,10 +23,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 36px;
-  background: #ffffff;
+  background: linear-gradient(180deg, #020617, #0f172a);
   border-radius: 18px;
   padding: 36px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.15);
   margin-bottom: 60px;
 }
 
@@ -44,11 +44,12 @@ body {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #f8fafc;
 }
 
 .hero-text p {
   font-size: 15px;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 22px;
   line-height: 1.6;
 }
@@ -64,8 +65,8 @@ body {
   padding: 12px 26px;
   border-radius: 999px;
   border: none;
-  background: #2563eb;
-  color: #ffffff;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  color: #020617;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -75,8 +76,8 @@ body {
   padding: 12px 26px;
   border-radius: 999px;
   background: transparent;
-  border: 1px solid #cbd5f5;
-  color: #2563eb;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -91,11 +92,12 @@ body {
 .stats div h3 {
   font-size: 22px;
   font-weight: 700;
+  color: #f8fafc;
 }
 
 .stats div span {
   font-size: 13px;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 /* ================= TRUSTED ================= */
@@ -106,7 +108,7 @@ body {
 
 .trusted p {
   font-size: 14px;
-  color: #64748b;
+  color: #94a3b8;
   margin-bottom: 16px;
 }
 
@@ -115,15 +117,15 @@ body {
   justify-content: center;
   gap: 26px;
   font-weight: 600;
-  color: #475569;
+  color: #64748b;
 }
 
 /* ================= ABOUT ================= */
 .course-about {
-  background: #ffffff;
+  background: linear-gradient(180deg, #020617, #0f172a);
   border-radius: 16px;
   padding: 32px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.15);
   margin-bottom: 60px;
 }
 
@@ -131,11 +133,12 @@ body {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: #f8fafc;
 }
 
 .course-about p {
   font-size: 15px;
-  color: #475569;
+  color: #94a3b8;
   line-height: 1.6;
 }
 
@@ -152,6 +155,7 @@ body {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 16px;
+  color: #f8fafc;
 }
 
 .features-left ul {
@@ -160,34 +164,35 @@ body {
 
 .features-left li {
   font-size: 15px;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 10px;
 }
 
 /* BUY CARD */
 .course-card {
-  background: #ffffff;
+  background: linear-gradient(180deg, #020617, #0f172a);
   border-radius: 18px;
   padding: 28px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.15);
 }
 
 .course-card h3 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #f8fafc;
 }
 
 .price .current {
   font-size: 28px;
   font-weight: 700;
-  color: #2563eb;
+  color: #38bdf8;
 }
 
 .offer {
   margin: 10px 0 20px;
   font-size: 13px;
-  color: #dc2626;
+  color: #f87171;
 }
 
 /* BUY BUTTON */
@@ -196,8 +201,8 @@ body {
   padding: 14px;
   border-radius: 999px;
   border: none;
-  background: #2563eb;
-  color: #ffffff;
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  color: #020617;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -211,43 +216,41 @@ body {
 
 .card-features li {
   font-size: 14px;
-  color: #475569;
+  color: #94a3b8;
   margin-bottom: 8px;
 }
 
 /* ================= REVIEWS ================= */
 .reviews-section {
-  background: #ffffff;
+  background: linear-gradient(180deg, #020617, #0f172a);
   border-radius: 18px;
   padding: 32px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.15);
 }
 
 .reviews-section h4 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 16px;
+  color: #f8fafc;
 }
 
 .reviews-section p {
   font-size: 14px;
-  color: #475569;
+  color: #94a3b8;
 }
 
 .reviews-section a {
-  color: #2563eb;
+  color: #38bdf8;
   text-decoration: none;
 }
 
 /* REVIEW FORM */
-.reviews-section form {
-  margin-bottom: 30px;
-}
-
 .reviews-section label {
   display: block;
   font-size: 13px;
   margin-bottom: 6px;
+  color: #cbd5f5;
 }
 
 .reviews-section input,
@@ -255,9 +258,11 @@ body {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.3);
   margin-bottom: 14px;
   font-size: 13px;
+  background: #020617;
+  color: #e5e7eb;
 }
 
 .reviews-section textarea {
@@ -269,13 +274,13 @@ body {
 .review-card {
   padding: 16px;
   border-radius: 14px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.15);
   margin-bottom: 14px;
 }
 
 .review-card small {
   font-size: 12px;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 /* ================= RESPONSIVE ================= */

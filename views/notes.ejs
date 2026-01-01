@@ -33,20 +33,22 @@
 <div class="notes-container">
     
     <!-- CARD 1 -->
-    <div class="note-card" onclick="downloadFile('notes/network-security.pdf')">
-        <div class="note-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/924/924915.png" alt="Network">
-        </div>
-
-        <div class="note-center">
-            <h3>Ethical Hacking</h3>
-            <p>Ethical hacking, SOC operations, digital forensics basics.</p>
-        </div>
-
-        <div class="note-right">
-            <button onclick="downloadFile('notes/network-security.pdf')">DOWNLOAD</button>
-        </div>
+    <div class="note-card" onclick="downloadFile('notes/ceh.pdf')">
+     <div class="note-left">
+      <img src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
     </div>
+
+    <div class="note-center">
+    <h3>Ethical Hacking</h3>
+    <p>Ethical hacking, SOC operations, digital forensics basics.</p>
+  </div>
+
+  <div class="note-right">
+    <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+      DOWNLOAD
+    </button>
+  </div>
+</div>
 <!-- CARD 2 -->
     <div class="note-card" onclick="downloadFile('notes/network-security.pdf')">
         <div class="note-left">
@@ -59,7 +61,9 @@
         </div>
 
         <div class="note-right">
-            <button onclick="downloadFile('notes/network-security.pdf')">DOWNLOAD</button>
+            <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+            DOWNLOAD
+        </button>
         </div>
     </div>
 
@@ -75,7 +79,9 @@
         </div>
 
         <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
+          <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+      DOWNLOAD
+    </button>
         </div>
     </div>
 
@@ -91,7 +97,9 @@
         </div>
 
         <div class="note-right">
-            <button onclick="downloadFile('notes/malware-notes.pdf')">DOWNLOAD</button>
+            <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+      DOWNLOAD
+    </button>
         </div>
     </div>
 <!-- CARD 5 -->
@@ -106,7 +114,9 @@
         </div>
 
         <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
+            <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+      DOWNLOAD
+    </button>
         </div>
     </div>
 <!-- CARD 6 -->
@@ -121,7 +131,9 @@
         </div>
 
         <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
+            <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+      DOWNLOAD
+    </button>
         </div>
     </div>
 <!-- CARD 7 -->
@@ -134,9 +146,10 @@
             <h3>AWS Security</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
-<!-- CARD 8 -->
         <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
+            <button onclick="event.stopPropagation(); downloadFile('notes/ceh.pdf')">
+      DOWNLOAD
+    </button>
         </div>
     </div>
 
@@ -152,7 +165,7 @@
         </div>
 
         <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
+            <button onclick="downloadFile('notes/azure security.pdf')">DOWNLOAD</button>
         </div>
     </div>
 
@@ -237,7 +250,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Python</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -251,7 +264,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>c/c++</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -265,7 +278,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Digital Forensics</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -279,7 +292,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>CTIA/CSA</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -293,7 +306,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Incident Handling</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -307,7 +320,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Fortinet/Palo Alto</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -321,7 +334,7 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Block-chain</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
@@ -335,89 +348,33 @@
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Devops</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
             <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
         </div>
     </div>
-<!-- CARD 23 -->
-    <div class="note-card">
+    <!-- card 23 -->
+         <div class="note-card">
         <div class="note-left">
             <img src="https://cdn-icons-png.flaticon.com/512/3064/3064195.png" alt="Digital">
         </div>
 
         <div class="note-center">
-            <h3>ML</h3>
+            <h3>Basic linux</h3>
             <p>Cyber defense, real-world security practices.</p>
         </div>
         <div class="note-right">
             <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
         </div>
     </div>
-<!-- CARD 2 -->
-    <div class="note-card">
-        <div class="note-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064195.png" alt="Digital">
-        </div>
-
-        <div class="note-center">
-            <h3>ML</h3>
-            <p>Cyber defense, real-world security practices.</p>
-        </div>
-        <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
-        </div>
-    </div>
-<!-- CARD 1 -->
-    <div class="note-card">
-        <div class="note-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064195.png" alt="Digital">
-        </div>
-
-        <div class="note-center">
-            <h3>ML</h3>
-            <p>Cyber defense, real-world security practices.</p>
-        </div>
-        <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
-        </div>
-    </div>
-<!-- CARD 1 -->
-    <div class="note-card">
-        <div class="note-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064195.png" alt="Digital">
-        </div>
-
-        <div class="note-center">
-            <h3>ML</h3>
-            <p>Cyber defense, real-world security practices.</p>
-        </div>
-        <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
-        </div>
-    </div>
-
-<!--5-->
-    <div class="note-card">
-        <div class="note-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064195.png" alt="Digital">
-        </div>
-
-        <div class="note-center">
-            <h3>AI</h3>
-            <p>Cyber defense, real-world security practices.</p>
-        </div>
-
-        <div class="note-right">
-            <button onclick="downloadFile('notes/digital-security.pdf')">DOWNLOAD</button>
-        </div>
-    </div>
+    
 
 </div>
-
+<%- include('includes/footer') %>
 <script src="/js/notes.js"></script>
-<%- include('includes/footer.ejs') %>
+
 </body>
 </html>
+

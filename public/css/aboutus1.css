@@ -1,0 +1,140 @@
+
+
+body {
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(59, 130, 246, 0.25) 0%,
+      rgba(2, 6, 23, 0.95) 55%
+    ),
+    radial-gradient(
+      circle at bottom center,
+      rgba(14, 165, 233, 0.18) 0%,
+      rgba(2, 6, 23, 1) 65%
+    ),
+    linear-gradient(
+      180deg,
+      #020617 0%,
+      #020617 100%
+    );
+  background-attachment: fixed;
+}
+
+/* Ensure all sections remain transparent */
+section {
+  background: transparent !important;
+}
+
+/* Explicitly protect cards */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: inherit;
+}
+
+/* Explicitly protect images */
+img {
+  background: none;
+}
+
+
+/* ================================
+   3D Floating Card – Global Utility
+   ================================ */
+
+.float-3d {
+  position: relative;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Hover effect */
+.float-3d:hover {
+  transform: translateY(-10px) scale(1.02) rotateX(6deg);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Optional: smoother effect on touch devices */
+@media (hover: none) {
+  .float-3d:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
+}
+
+
+/* ================================
+   SECTION 1 – IMAGE HERO
+   ================================ */
+
+.image-section {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+}
+
+/* Background Image */
+.bg-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Overlay for readability */
+.image-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Content base */
+.image-content {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  max-width: 700px;
+  padding: 24px 28px;
+}
+
+/* Bottom Center-Left Position */
+.image-content.bottom-left {
+  bottom: 30px;
+  left: 5%;
+  text-align: left;
+}
+
+/* Typography */
+.image-content h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.image-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+/* Responsive tuning */
+@media (max-width: 768px) {
+  .image-content.bottom-left {
+    left: 5%;
+    right: 5%;
+    bottom: 40px;
+  }
+
+  .image-content h1 {
+    font-size: 1.8rem;
+  }
+}

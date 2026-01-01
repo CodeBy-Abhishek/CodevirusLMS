@@ -2,9 +2,21 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
-  email: String,
-  password: String,
+  username: {
+    type: String,
+    required: true
+  },
+
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+
+  password: {
+    type: String,
+    required: true
+  },
 
   boughtCourses: [
     {
@@ -13,11 +25,24 @@ const userSchema = new Schema({
     }
   ],
 
-  // ✅ NEW (Teacher / Admin support)
   role: {
     type: String,
     enum: ["student", "teacher", "admin"],
     default: "student"
+  },
+
+  // 🔐 EMAIL VERIFICATION FIELDS
+  isVerified: {
+    type: Boolean,
+    default: false
+  },
+
+  emailToken: {
+    type: String
+  },
+
+  emailTokenExpiry: {
+    type: Date
   }
 });
 
