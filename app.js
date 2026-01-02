@@ -11,9 +11,10 @@ const http = require("http");
 const { Server } = require("socket.io");
 const rateLimit = require("express-rate-limit");
 const axios = require("axios");
+const nodemailer = require("nodemailer");
 
 const slowDown = require("express-slow-down");
-
+const crypto = require("crypto");
 
 
 
@@ -40,10 +41,27 @@ const { appendFile } = require("fs/promises");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 // === DB CONNECTION
-mongoose
-  .connect(process.env.MONGO_URL )
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log("MongoDB Atlas Connected");
+
+ //mongodb://127.0.0.1:27017/LMSproject
+    setInterval(async () => {
+      try {
+        const result = await User.deleteMany({
+          isVerified: false,
+          emailTokenExpiry: { $lt: Date.now() }
+        });
+
+        if (result.deletedCount > 0) {
+          console.log(`🧹 Removed ${result.deletedCount} unverified users`);
+        }
+      } catch (err) {
+        console.error("Cleanup error:", err);
+      }
+    }, 24 * 60 * 60 * 1000); 
+  })
+  .catch(err => console.error("MongoDB error:", err));
 
 // ==APP CONFIG 
 app.set("view engine", "ejs");
@@ -58,9 +76,31 @@ const loginLimiter = slowDown({
   delayAfter: 3,
   delayMs: (used, req) => {
     const delayAfter = req.slowDown.limit;
-    return (used - delayAfter) * 1000; // 1 sec per extra request
+    return (used - delayAfter) * 1000; 
   }
 });
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+
+async function sendEmail(to, subject, html) {
+  await transporter.sendMail({
+    from: `"Codevirus" <${process.env.EMAIL_USER}>`,
+    to: to,          
+    subject: subject, 
+    html: html
+  });
+}
 
 
 
@@ -75,22 +115,28 @@ const validateReview = (req, _res, next) => {
   next();
 };
 
+const MongoStore = require("connect-mongo").default;
 
-
-
-//  SESSION 
 app.use(
   session({
+    name: "codevirus.sid",
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+
+    store: new MongoStore({
+      mongoUrl: process.env.MONGO_URL,
+      collectionName: "sessions"
+    }),
+
     cookie: {
-      expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: true
+      sameSite: "lax"
     }
   })
 );
+
 
 app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
@@ -157,6 +203,7 @@ app.get("/home/course", wrapAsync(async (req, res) => {
 
 app.get("/notes", (req, res) => res.render("notes"));
 app.get("/home/login", (req, res) => res.render("login"));
+
 app.get("/home/signup", (req, res) => res.render("signup"));
 app.get("/home/terms", (req, res) => res.render("terms"));
 
@@ -165,7 +212,7 @@ app.get("/home/terms", (req, res) => res.render("terms"));
 // ratelimiter in login
 const authLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 100,
+  max: 50,
   message: "Too many attempts, try later",
   standardHeaders: true,
   legacyHeaders: false,
@@ -175,20 +222,18 @@ const authLimiter = rateLimit({
 
 
 
-
 // REGISTER
 app.post(
-  "/register",loginLimiter,
+  "/register",
+  loginLimiter,
   authLimiter,
   wrapAsync(async (req, res) => {
 
-    // 1️⃣ CAPTCHA TOKEN
     const captchaToken = req.body["g-recaptcha-response"];
     if (!captchaToken || !(await verifyRecaptcha(captchaToken))) {
       throw new ExpressError(400, "CAPTCHA verification failed");
     }
 
-    // 2️⃣ Normal register logic
     const { username, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
@@ -198,78 +243,124 @@ app.post(
 
     const hash = await bcrypt.hash(password, 10);
 
+    const emailToken = crypto.randomBytes(32).toString("hex");
+
     const user = new User({
       username,
       email,
-      password: hash
+      password: hash,
+      isVerified: false,
+      emailToken,
+      emailTokenExpiry: Date.now() + 24 * 60 * 60 * 1000
     });
 
     await user.save();
 
-    // 3️⃣ Session
-    req.session.user = {
-      _id: user._id,
-      username: user.username,
-      email: user.email,
-      role: user.role
-    };
+    const verifyLink = `http://localhost:3000/verify-email/${emailToken}`;
 
-    res.redirect("/home");
+    await sendEmail(
+      email,
+      "Verify your CodeVirus account",
+      `
+        <h2>Email Verification</h2>
+        <p>Hello ${username}</p>
+        <p>Click the button below to verify your email</p>
+        <a href="${verifyLink}"
+           style="padding:10px 15px;background:#4f46e5;color:white;text-decoration:none;">
+           Verify Email
+        </a>
+        <p>Link expires in 24 hours</p>
+      `
+    );
+
+    res.send("Registration successful. Please check your email to verify your account.");
+
   })
 );
 
-// ================= GOOGLE AUTH =================
 
-// Start Google Login
-app.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"]
-  })
-);
+app.get("/verify-email/:token", async (req, res) => {
+  const user = await User.findOne({
+    emailToken: req.params.token,
+    emailTokenExpiry: { $gt: Date.now() }
+  });
 
-// Callback
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/home/login" }),
-  (req, res) => {
-
-    // 🔥 Manual session (matches your app logic)
-    req.session.user = {
-      _id: req.user._id,
-      username: req.user.username,
-      email: req.user.email,
-      role: req.user.role
-    };
-
-    res.redirect("/home");
+  if (!user) {
+    return res.status(400).send("Invalid or expired token");
   }
-);
 
-// LOGIN
-app.post(
-  "/login",
-  authLimiter,loginLimiter,
-  wrapAsync(async (req, res) => {
-
-    
-    const captchaToken = req.body["g-recaptcha-response"];
-    if (!captchaToken || !(await verifyRecaptcha(captchaToken))) {
-      throw new ExpressError(400, "CAPTCHA verification failed");
-    }
-
-    
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-    if (!user) throw new ExpressError(401, "User not found");
-
-    const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) {
-      throw new ExpressError(401, "Wrong password");
-    }
+  user.isVerified = true;
+  user.emailToken = undefined;
+  user.emailTokenExpiry = undefined;
+  await user.save();
 
   
+  req.session.user = {
+    _id: user._id,
+    username: user.username,
+    email: user.email,
+    role: user.role
+  };
+
+  req.session.save(() => {
+    res.redirect("/home"); // or dashboard
+  });
+});
+
+
+app.post(
+  "/login",
+  authLimiter,
+  loginLimiter,
+  wrapAsync(async (req, res) => {
+
+   
+    const captchaToken = req.body["g-recaptcha-response"];
+    if (!captchaToken || !(await verifyRecaptcha(captchaToken))) {
+      return res.render("login", {
+        error: "CAPTCHA verification failed",
+        recaptchaSiteKey: process.env.RECAPTCHA_SITE
+      });
+    }
+
+    const { email, password } = req.body;
+
+  
+    if (!email || !password) {
+      return res.render("login", {
+        error: "Email and password are required",
+        recaptchaSiteKey: process.env.RECAPTCHA_SITE
+      });
+    }
+
+   
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.render("login", {
+        error: "Invalid email or password",
+        recaptchaSiteKey: process.env.RECAPTCHA_SITE
+      });
+    }
+
+    
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    if (!isValidPassword) {
+      return res.render("login", {
+        error: "Invalid email or password",
+        recaptchaSiteKey: process.env.RECAPTCHA_SITE
+      });
+    }
+
+    
+    if (!user.isVerified) {
+      return res.render("login", {
+        error: "Please verify your email before logging in",
+        recaptchaSiteKey: process.env.RECAPTCHA_SITE
+      });
+    }
+
+    
+    req.session.userId = user._id;
     req.session.user = {
       _id: user._id,
       username: user.username,
@@ -277,9 +368,21 @@ app.post(
       role: user.role
     };
 
-    res.redirect("/home");
+    
+    req.session.save(err => {
+      if (err) {
+        console.error("Session save error:", err);
+        return res.render("login", {
+          error: "Something went wrong. Try again.",
+          recaptchaSiteKey: process.env.RECAPTCHA_SITE
+        });
+      }
+      res.redirect("/home");
+    });
+
   })
 );
+
 
 
 app.get("/logout", (req, res) => {
@@ -305,27 +408,56 @@ app.get("/home/:id", wrapAsync(async (req, res) => {
 
 // === BUY COURSE 
 app.post("/courses/:id/buy", wrapAsync(async (req, res) => {
-  if (!req.session.user) return res.redirect("/home/login");
+  if (!req.session.user) {
+    return res.redirect("/home/login");
+  }
+
+  const course = await Course.findById(req.params.id);
+  if (!course) {
+    throw new ExpressError(404, "Course not found");
+  }
 
   const user = await User.findById(req.session.user._id);
-  if (!user.boughtCourses.includes(req.params.id)) {
-  user.boughtCourses.push(req.params.id);
-}
 
-  await user.save();
+  const alreadyBought = user.boughtCourses.some(courseId =>
+    courseId.equals(course._id)
+  );
+
+  if (!alreadyBought) {
+    user.boughtCourses.push(course._id);
+    await user.save();
+
+    // 🔑 keep session in sync
+    req.session.user = user;
+  }
 
   res.redirect("/afterbuy");
 }));
 
 app.get("/certificate/:id", wrapAsync(async (req, res) => {
-  const { id } = req.params;
+  if (!req.session.user) {
+    return res.redirect("/home/login");
+  }
 
-  const course = await Course.findById(id)
-    .populate("CourseOwnerName"); // 🔥 REQUIRED
+  const course = await Course.findById(req.params.id);
+  if (!course) {
+    throw new ExpressError(404, "Course not found");
+  }
 
-  if (!course) throw new ExpressError(404, "Course not found");
+  const user = await User.findById(req.session.user._id);
 
-  res.render("certificate", { course });
+  const hasBought = user.boughtCourses.some(courseId =>
+    courseId.equals(course._id)
+  );
+
+  if (!hasBought) {
+    throw new ExpressError(403, "You are not allowed to access this certificate");
+  }
+
+  res.render("certificate", {
+    course,
+    student: user
+  });
 }));
 
 
@@ -537,7 +669,7 @@ app.use((err, req, res, next) => {
 
   // Send safe message to user
   res.status(statusCode).render("error", {
-    message:"Something went wrong. Please try again later."
+    message: "Something went wrong. Please try again later."
   });
 });
 
@@ -559,7 +691,7 @@ io.use((socket, next) => {
   const token = socket.handshake.auth?.token;
 
   if (!token) {
-    console.log("❌ Socket rejected: No token");
+    console.log(" Socket rejected: No token");
     return next(new Error("Unauthorized"));
   }
 
@@ -588,7 +720,7 @@ io.on("connection", (socket) => {
   const rateLimit = () => {
     eventCount++;
     if (eventCount > EVENT_LIMIT) {
-      console.log("❌ Socket spam detected:", socket.id);
+      console.log("Socket spam detected:", socket.id);
       socket.disconnect(true);
     }
   };
@@ -642,15 +774,15 @@ io.on("connection", (socket) => {
 
 port = process.env.PORT;
 // ================= SERVER =================
-async function startServer() {
-  try {
-    app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  }); 
-  } catch (error) {
-    console.error("Failed to start server:", error);
-    
-  }  
+function startServer() {
+  const server = app.listen(port, () => {
+    console.log(` Server running on port ${port}`);
+  });
 
-} 
+  server.on("error", (error) => {
+    console.error(" Failed to start server:", error.message);
+    process.exit(1);
+  });
+}
+
 startServer();

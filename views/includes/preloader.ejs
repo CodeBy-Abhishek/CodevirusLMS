@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<div id="preloader">
+    <h1 class="loader-main-text">
+        <span class="dynamic-text-loader">Cod</span>
+        <div class="radar-o-container">
+            <div class="radar-core"></div>
+            <div class="radar-connector"></div>
+            <div class="ripple-loader r1"></div>
+            <div class="ripple-loader r2"></div>
+            <div class="ripple-loader r3"></div>
+        </div>
+        <span class="dynamic-text-loader">virus</span>
+    </h1>
+    <div class="loader-sub-text">
+        <span class="dynamic-text-loader">Security</span>
+    </div>
+    <div class="loader-bar-container">
+        <div class="loader-bar-mover"></div>
+    </div>
+</div>
+
+<style>
+    #preloader {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100vh;
+        background: radial-gradient(circle at center, #141e30 0%, #000000 100%);
+        z-index: 99999;
+        display: flex; justify-content: center; align-items: center; flex-direction: column;
+        transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    }
+    .loader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    /* Text & Animation Styles */
+    .dynamic-text-loader {
+        font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase;
+        background: linear-gradient(110deg, #2979ff 20%, #00e5ff 40%, #00e5ff 60%, #2979ff 80%);
+        background-size: 200% auto; background-clip: text; -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(41, 121, 255, 0.4), 0 0 30px rgba(0, 229, 255, 0.3);
+        animation: textShimmerLoader 3s linear infinite;
+    }
+    .loader-main-text { font-size: 4rem; display: flex; align-items: center; justify-content: center; }
+    .loader-sub-text { font-size: 1.5rem; letter-spacing: 4px; margin-top: -5px; }
+
+    /* Radar Animations */
+    .radar-o-container { position: relative; width: 0.9em; height: 0.9em; margin: 0 8px; display: flex; justify-content: center; align-items: center; }
+    .radar-core { width: 18%; height: 18%; background-color: #00e5ff; border-radius: 50%; position: absolute; animation: corePulseLoader 1.5s infinite alternate; }
+    .radar-connector { position: absolute; width: 55%; height: 3px; background: linear-gradient(90deg, transparent, #2979ff); right: 15%; top: 50%; transform: translateY(-50%); z-index: 5; }
+    .radar-connector::after { content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; background-color: #2979ff; border-radius: 50%; box-shadow: 0 0 10px #2979ff; }
+    .ripple-loader { position: absolute; border: 3px solid transparent; border-radius: 50%; border-color: #2979ff; box-shadow: 0 0 10px #2979ff, inset 0 0 10px #2979ff; animation: rippleDynamicLoader 3s infinite cubic-bezier(0.1, 0.5, 0.1, 1); opacity: 0; }
+    .r1 { width: 30%; height: 30%; animation-delay: 0s; }
+    .r2 { width: 60%; height: 60%; animation-delay: 0.5s; border-color: #00e5ff; box-shadow: 0 0 10px #00e5ff;}
+    .r3 { width: 90%; height: 90%; animation-delay: 1s; }
+
+    /* Bar Animation */
+    .loader-bar-container { width: 250px; height: 6px; background: rgba(41, 121, 255, 0.2); margin: 40px auto 0; border-radius: 10px; overflow: hidden; position: relative; }
+    .loader-bar-mover { position: absolute; left: -50%; top: 0; height: 100%; width: 50%; border-radius: 10px; background: linear-gradient(90deg, transparent 0%, #2979ff 50%, #00e5ff 100%); filter: drop-shadow(0 0 10px #00e5ff) drop-shadow(0 0 20px #2979ff); animation: loadingMoveLoader 2.5s infinite ease-in-out; }
+
+    @keyframes textShimmerLoader { to { background-position: -200% center; } }
+    @keyframes rippleDynamicLoader { 0% { transform: scale(0.1); opacity: 0.8; border-width: 4px; } 100% { transform: scale(2); opacity: 0; border-width: 1px; } }
+    @keyframes corePulseLoader { 0% { box-shadow: 0 0 5px #00e5ff; transform: scale(1); } 100% { box-shadow: 0 0 25px #00e5ff, 0 0 40px #00e5ff; transform: scale(1.2); } }
+    @keyframes loadingMoveLoader { 0% { left: -60%; opacity: 0.5;} 50% { opacity: 1; } 100% { left: 110%; opacity: 0.5;} }
+</style>
+</body>
+</html>
